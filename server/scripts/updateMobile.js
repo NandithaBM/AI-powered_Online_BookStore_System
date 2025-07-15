@@ -14,7 +14,7 @@ async function updateMobile() {
     { email },
     { $set: { mobile } }
   );
-
+  console.log(result);
   if (result.modifiedCount > 0) {
     console.log(`Mobile updated for ${email}`);
   } else {
