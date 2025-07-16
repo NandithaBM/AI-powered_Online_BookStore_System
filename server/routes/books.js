@@ -2,6 +2,7 @@ import express from 'express';
 import Book from '../models/Book.js';
 import { auth } from '../middleware/auth.js';
 import Order from '../models/Order.js';
+import remoteSentiment from '../services/remoteSentimentAnalysis.js';
 
 const router = express.Router();
 
@@ -155,42 +156,65 @@ router.get('/:id', async (req, res) => {
 // Add review
 router.post('/:id/reviews', auth, async (req, res) => {
   try {
-    const { rating, comment } = req.body;
+    const { rating, comment, text: rawText } = req.body;
+    const reviewText = comment || rawText;
+    if (!reviewText || !rating) {
+      return res.status(400).json({ message: 'Review text and rating are required' });
+    }
     const book = await Book.findById(req.params.id);
-
     if (!book) {
       return res.status(404).json({ message: 'Book not found' });
     }
-
     // Check if user already reviewed this book
     const existingReview = book.reviews.find(
       review => review.user.toString() === req.user.userId
     );
-
     if (existingReview) {
       return res.status(400).json({ message: 'You have already reviewed this book' });
     }
-
+    // Run sentiment analysis on review text
+    let analysis;
+    try {
+      analysis = await remoteSentiment.analyze(reviewText);
+    } catch (err) {
+      console.error('Sentiment analysis error:', err);
+      return res.status(500).json({ message: 'Sentiment analysis failed' });
+    }
+    if (!analysis || !analysis.overall) {
+      return res.status(500).json({ message: 'Invalid sentiment analysis result' });
+    }
     // Add review
     book.reviews.push({
       user: req.user.userId,
       rating,
-      comment,
-      sentiment: 'neutral', // This would be determined by AI sentiment analysis
+      comment: reviewText,
+      sentiment: analysis.overall.toLowerCase(),
+      metadata: analysis.metadata || analysis
     });
-
     // Update ratings
     book.updateRatings();
     await book.save();
-
     await book.populate('reviews.user', 'name profile.avatar');
-
     res.status(201).json({
       message: 'Review added successfully',
       review: book.reviews[book.reviews.length - 1],
     });
   } catch (error) {
     console.error('Add review error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// Get reviews for a specific book
+router.get('/:id/reviews', async (req, res) => {
+  try {
+    const book = await Book.findById(req.params.id).populate('reviews.user', 'name profile.avatar');
+    if (!book) {
+      return res.status(404).json({ message: 'Book not found' });
+    }
+    res.json(book.reviews || []);
+  } catch (error) {
+    console.error('Get book reviews error:', error);
     res.status(500).json({ message: 'Server error' });
   }
 });

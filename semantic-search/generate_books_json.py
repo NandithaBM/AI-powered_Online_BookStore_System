@@ -13,8 +13,10 @@ def fetch_books():
 def transform_books(raw_books):
     transformed = []
     for book in raw_books:
+        mongo_id = str(book.get("_id", ""))
         transformed.append({
-            "id": str(book.get("_id", "")),
+            "_id": mongo_id,
+            "id": mongo_id,
             "title": book.get("title", ""),
             "author": book.get("author", ""),
             "genre": ", ".join(book.get("genre", [])) if isinstance(book.get("genre"), list) else book.get("genre", ""),

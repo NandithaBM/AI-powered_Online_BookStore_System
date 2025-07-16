@@ -63,9 +63,11 @@ const BookCard: React.FC<BookCardProps> = ({ book, showQuickActions = true }) =>
     ? book.genre.slice(0, 2).join(', ')
     : book?.genre || "Unknown";
 
+  const bookId = book._id || book.id || '';
+
   return (
     <div className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
-      <Link to={`/books/${book._id || book.id || ''}`}>
+      <Link to={`/books/${bookId}`}>
         <div className="relative overflow-hidden">
           <img
             src={book.coverImage || book.coverUrl || fallbackImage}

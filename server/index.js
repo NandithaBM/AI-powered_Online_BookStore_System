@@ -37,15 +37,15 @@ app.use(helmet());
 app.use(compression());
 
 // Rate limiter
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 mins
-  max: 100,
-});
-app.use(limiter);
+// const limiter = rateLimit({
+//   windowMs: 15 * 60 * 1000, // 15 mins
+//   max: 100,
+// });
+// app.use(limiter);
 
 // CORS
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
   credentials: true,
 }));
 

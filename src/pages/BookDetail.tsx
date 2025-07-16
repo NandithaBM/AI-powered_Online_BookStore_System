@@ -104,7 +104,7 @@ const BookDetail = () => {
 
       // Try to fetch recommendations, but don't block book display if it fails
       try {
-        const recs = await getRecommendations(response.data.id);
+        const recs = await getRecommendations(response.data._id);
         setRecommendations(recs);
         console.log('Recommendations:', recs);
       } catch (recError) {

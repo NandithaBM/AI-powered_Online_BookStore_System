@@ -1,6 +1,7 @@
 [
   {
-    "id": "685187a450fe8081d94df5d1",
+    "_id": "68764319cf1b5e72758c0fee",
+    "id": "68764319cf1b5e72758c0fee",
     "title": "The Red Badge of Courage",
     "author": "Stephen Crane",
     "genre": "Thriller",
@@ -9,7 +10,8 @@
     "price": 21.4
   },
   {
-    "id": "685187a450fe8081d94df5d2",
+    "_id": "68764319cf1b5e72758c0fef",
+    "id": "68764319cf1b5e72758c0fef",
     "title": "Sonnets",
     "author": "William Shakespeare",
     "genre": "Biography",
@@ -18,7 +20,8 @@
     "price": 20.49
   },
   {
-    "id": "685187a450fe8081d94df5d3",
+    "_id": "68764319cf1b5e72758c0ff0",
+    "id": "68764319cf1b5e72758c0ff0",
     "title": "Houghton Mifflin Science Leveled Readers",
     "author": "Houghton Mifflin Company Staff",
     "genre": "Science",
@@ -27,7 +30,8 @@
     "price": 11.59
   },
   {
-    "id": "685187a450fe8081d94df5d4",
+    "_id": "68764319cf1b5e72758c0ff1",
+    "id": "68764319cf1b5e72758c0ff1",
     "title": "The Second Jungle Book",
     "author": "Rudyard Kipling",
     "genre": "Biography",
@@ -36,7 +40,8 @@
     "price": 24.57
   },
   {
-    "id": "685187a450fe8081d94df5d5",
+    "_id": "68764319cf1b5e72758c0ff2",
+    "id": "68764319cf1b5e72758c0ff2",
     "title": "Treasure Island",
     "author": "Robert Louis Stevenson",
     "genre": "Fiction",
@@ -45,7 +50,8 @@
     "price": 16.29
   },
   {
-    "id": "685187a450fe8081d94df5d6",
+    "_id": "68764319cf1b5e72758c0ff3",
+    "id": "68764319cf1b5e72758c0ff3",
     "title": "Whose Body?",
     "author": "Dorothy L. Sayers",
     "genre": "Mystery",
@@ -54,7 +60,8 @@
     "price": 23.1
   },
   {
-    "id": "685187a450fe8081d94df5d7",
+    "_id": "68764319cf1b5e72758c0ff4",
+    "id": "68764319cf1b5e72758c0ff4",
     "title": "Trent's Last Case",
     "author": "E. C. Bentley",
     "genre": "Mystery",
@@ -63,7 +70,8 @@
     "price": 11.03
   },
   {
-    "id": "685187a450fe8081d94df5d8",
+    "_id": "68764319cf1b5e72758c0ff5",
+    "id": "68764319cf1b5e72758c0ff5",
     "title": "Autobiography",
     "author": "Benjamin Franklin",
     "genre": "Biography",
@@ -72,7 +80,8 @@
     "price": 16.4
   },
   {
-    "id": "685187a450fe8081d94df5d9",
+    "_id": "68764319cf1b5e72758c0ff6",
+    "id": "68764319cf1b5e72758c0ff6",
     "title": "Vingt mille lieues sous les mers",
     "author": "Jules Verne",
     "genre": "Thriller",
@@ -81,7 +90,8 @@
     "price": 23.8
   },
   {
-    "id": "685187a450fe8081d94df5da",
+    "_id": "68764319cf1b5e72758c0ff7",
+    "id": "68764319cf1b5e72758c0ff7",
     "title": "Kidnapped",
     "author": "Robert Louis Stevenson",
     "genre": "Thriller",
@@ -90,7 +100,8 @@
     "price": 21.26
   },
   {
-    "id": "685187a450fe8081d94df5db",
+    "_id": "68764319cf1b5e72758c0ff8",
+    "id": "68764319cf1b5e72758c0ff8",
     "title": "The Secret Adversary",
     "author": "Agatha Christie",
     "genre": "Mystery",
@@ -99,7 +110,8 @@
     "price": 22.99
   },
   {
-    "id": "685187a450fe8081d94df5dc",
+    "_id": "68764319cf1b5e72758c0ff9",
+    "id": "68764319cf1b5e72758c0ff9",
     "title": "The Call of the Wild",
     "author": "Jack London",
     "genre": "History",
@@ -108,7 +120,8 @@
     "price": 28.03
   },
   {
-    "id": "685187a450fe8081d94df5dd",
+    "_id": "68764319cf1b5e72758c0ffa",
+    "id": "68764319cf1b5e72758c0ffa",
     "title": "Houghton Mifflin Science California",
     "author": "Houghton Mifflin Company Staff",
     "genre": "Science",
@@ -117,7 +130,8 @@
     "price": 18.69
   },
   {
-    "id": "685187a450fe8081d94df5de",
+    "_id": "68764319cf1b5e72758c0ffb",
+    "id": "68764319cf1b5e72758c0ffb",
     "title": "Heart of Darkness",
     "author": "Joseph Conrad",
     "genre": "Romance",
@@ -126,7 +140,8 @@
     "price": 18.09
   },
   {
-    "id": "685187a450fe8081d94df5df",
+    "_id": "68764319cf1b5e72758c0ffc",
+    "id": "68764319cf1b5e72758c0ffc",
     "title": "The Lost Princess of Oz",
     "author": "L. Frank Baum",
     "genre": "Fantasy",
@@ -135,7 +150,8 @@
     "price": 28.08
   },
   {
-    "id": "685187a450fe8081d94df5e0",
+    "_id": "68764319cf1b5e72758c0ffd",
+    "id": "68764319cf1b5e72758c0ffd",
     "title": "Cranford",
     "author": "Elizabeth Cleghorn Gaskell",
     "genre": "Romance",
@@ -144,7 +160,8 @@
     "price": 26.31
   },
   {
-    "id": "685187a450fe8081d94df5e1",
+    "_id": "68764319cf1b5e72758c0ffe",
+    "id": "68764319cf1b5e72758c0ffe",
     "title": "Candide",
     "author": "Voltaire",
     "genre": "History",
@@ -153,7 +170,8 @@
     "price": 24.45
   },
   {
-    "id": "685187a450fe8081d94df5e2",
+    "_id": "68764319cf1b5e72758c0fff",
+    "id": "68764319cf1b5e72758c0fff",
     "title": "Anne of Green Gables",
     "author": "Lucy Maud Montgomery",
     "genre": "History",
@@ -162,7 +180,8 @@
     "price": 28.1
   },
   {
-    "id": "685187a450fe8081d94df5e3",
+    "_id": "68764319cf1b5e72758c1000",
+    "id": "68764319cf1b5e72758c1000",
     "title": "Emma",
     "author": "Jane Austen",
     "genre": "Fiction",
@@ -171,7 +190,8 @@
     "price": 15.9
   },
   {
-    "id": "685187a450fe8081d94df5e4",
+    "_id": "68764319cf1b5e72758c1001",
+    "id": "68764319cf1b5e72758c1001",
     "title": "The Complete Life and Adventures of Santa Claus",
     "author": "L. Frank Baum",
     "genre": "Fantasy",
@@ -180,7 +200,8 @@
     "price": 22.75
   },
   {
-    "id": "685187a450fe8081d94df5e5",
+    "_id": "68764319cf1b5e72758c1002",
+    "id": "68764319cf1b5e72758c1002",
     "title": "The Thirty-Nine Steps",
     "author": "John Buchan",
     "genre": "Thriller",
@@ -189,7 +210,8 @@
     "price": 27.71
   },
   {
-    "id": "685187a450fe8081d94df5e6",
+    "_id": "68764319cf1b5e72758c1003",
+    "id": "68764319cf1b5e72758c1003",
     "title": "Brave New World",
     "author": "Aldous Huxley",
     "genre": "Science",
@@ -198,7 +220,8 @@
     "price": 24.19
   },
   {
-    "id": "685187a450fe8081d94df5e7",
+    "_id": "68764319cf1b5e72758c1004",
+    "id": "68764319cf1b5e72758c1004",
     "title": "Jane Eyre",
     "author": "Charlotte Brontë",
     "genre": "Romance",
@@ -207,7 +230,8 @@
     "price": 25.72
   },
   {
-    "id": "685187a450fe8081d94df5e8",
+    "_id": "68764319cf1b5e72758c1005",
+    "id": "68764319cf1b5e72758c1005",
     "title": "The deerslayer",
     "author": "James Fenimore Cooper",
     "genre": "Thriller",
@@ -216,7 +240,8 @@
     "price": 19.19
   },
   {
-    "id": "685187a450fe8081d94df5e9",
+    "_id": "68764319cf1b5e72758c1006",
+    "id": "68764319cf1b5e72758c1006",
     "title": "The Pilgrim's Progress",
     "author": "John Bunyan",
     "genre": "Biography",
@@ -225,7 +250,8 @@
     "price": 23.96
   },
   {
-    "id": "685187a450fe8081d94df5ea",
+    "_id": "68764319cf1b5e72758c1007",
+    "id": "68764319cf1b5e72758c1007",
     "title": "Great Expectations",
     "author": "Charles Dickens",
     "genre": "History",
@@ -234,7 +260,8 @@
     "price": 16.79
   },
   {
-    "id": "685187a450fe8081d94df5eb",
+    "_id": "68764319cf1b5e72758c1008",
+    "id": "68764319cf1b5e72758c1008",
     "title": "The Marvelous Land of Oz",
     "author": "L. Frank Baum",
     "genre": "Fantasy",
@@ -243,7 +270,8 @@
     "price": 24.98
   },
   {
-    "id": "685187a450fe8081d94df5ec",
+    "_id": "68764319cf1b5e72758c1009",
+    "id": "68764319cf1b5e72758c1009",
     "title": "The Wonderful Wizard of Oz",
     "author": "L. Frank Baum",
     "genre": "Fiction",
@@ -252,7 +280,8 @@
     "price": 20.05
   },
   {
-    "id": "685187a450fe8081d94df5ed",
+    "_id": "68764319cf1b5e72758c100a",
+    "id": "68764319cf1b5e72758c100a",
     "title": "Wuthering Heights",
     "author": "Emily Brontë",
     "genre": "Fiction",
@@ -261,7 +290,8 @@
     "price": 23.86
   },
   {
-    "id": "685187a450fe8081d94df5ee",
+    "_id": "68764319cf1b5e72758c100b",
+    "id": "68764319cf1b5e72758c100b",
     "title": "Pride and Prejudice",
     "author": "Jane Austen",
     "genre": "Fiction",
@@ -270,7 +300,8 @@
     "price": 17.04
   },
   {
-    "id": "685187a450fe8081d94df5ef",
+    "_id": "68764319cf1b5e72758c100c",
+    "id": "68764319cf1b5e72758c100c",
     "title": "Little Women",
     "author": "Louisa May Alcott",
     "genre": "Fiction",
@@ -279,7 +310,8 @@
     "price": 17.08
   },
   {
-    "id": "685187a450fe8081d94df5f0",
+    "_id": "68764319cf1b5e72758c100d",
+    "id": "68764319cf1b5e72758c100d",
     "title": "Leaves of Grass",
     "author": "Walt Whitman",
     "genre": "Biography",
@@ -288,7 +320,8 @@
     "price": 12.59
   },
   {
-    "id": "685187a450fe8081d94df5f1",
+    "_id": "68764319cf1b5e72758c100e",
+    "id": "68764319cf1b5e72758c100e",
     "title": "Narrative of the life of Frederick Douglass",
     "author": "Frederick Douglass",
     "genre": "Biography",
@@ -297,7 +330,8 @@
     "price": 15.05
   },
   {
-    "id": "685187a450fe8081d94df5f2",
+    "_id": "68764319cf1b5e72758c100f",
+    "id": "68764319cf1b5e72758c100f",
     "title": "The Man Who Was Thursday",
     "author": "Gilbert Keith Chesterton",
     "genre": "Mystery",
@@ -306,7 +340,8 @@
     "price": 28.28
   },
   {
-    "id": "685187a450fe8081d94df5f3",
+    "_id": "68764319cf1b5e72758c1010",
+    "id": "68764319cf1b5e72758c1010",
     "title": "Gulliver's Travels",
     "author": "Jonathan Swift",
     "genre": "Fantasy",
@@ -315,7 +350,8 @@
     "price": 9.94
   },
   {
-    "id": "685187a450fe8081d94df5f4",
+    "_id": "68764319cf1b5e72758c1011",
+    "id": "68764319cf1b5e72758c1011",
     "title": "Alice's Adventures in Wonderland",
     "author": "Lewis Carroll",
     "genre": "Fiction",
@@ -324,7 +360,8 @@
     "price": 12.02
   },
   {
-    "id": "685187a450fe8081d94df5f5",
+    "_id": "68764319cf1b5e72758c1012",
+    "id": "68764319cf1b5e72758c1012",
     "title": "The Riddle of the Sands",
     "author": "Erskine Childers",
     "genre": "Mystery",
@@ -333,7 +370,8 @@
     "price": 26.54
   },
   {
-    "id": "685187a450fe8081d94df5f6",
+    "_id": "68764319cf1b5e72758c1013",
+    "id": "68764319cf1b5e72758c1013",
     "title": "The Picture of Dorian Gray",
     "author": "Oscar Wilde",
     "genre": "Fiction",
@@ -342,7 +380,8 @@
     "price": 9.29
   },
   {
-    "id": "685187a450fe8081d94df5f7",
+    "_id": "68764319cf1b5e72758c1014",
+    "id": "68764319cf1b5e72758c1014",
     "title": "Twelve years a slave",
     "author": "Solomon Northup",
     "genre": "Biography",
@@ -351,7 +390,8 @@
     "price": 28.85
   },
   {
-    "id": "685187a450fe8081d94df5f8",
+    "_id": "68764319cf1b5e72758c1015",
+    "id": "68764319cf1b5e72758c1015",
     "title": "The Woodlanders",
     "author": "Thomas Hardy",
     "genre": "Romance",
@@ -360,7 +400,8 @@
     "price": 12.74
   },
   {
-    "id": "685187a450fe8081d94df5f9",
+    "_id": "68764319cf1b5e72758c1016",
+    "id": "68764319cf1b5e72758c1016",
     "title": "Five Children and It",
     "author": "Edith Nesbit",
     "genre": "Fantasy",
@@ -369,7 +410,8 @@
     "price": 16.34
   },
   {
-    "id": "685187a450fe8081d94df5fa",
+    "_id": "68764319cf1b5e72758c1017",
+    "id": "68764319cf1b5e72758c1017",
     "title": "The Lost World",
     "author": "Arthur Conan Doyle",
     "genre": "Fantasy",
@@ -378,7 +420,8 @@
     "price": 16.44
   },
   {
-    "id": "685187a450fe8081d94df5fb",
+    "_id": "68764319cf1b5e72758c1018",
+    "id": "68764319cf1b5e72758c1018",
     "title": "Sense and Sensibility",
     "author": "Jane Austen",
     "genre": "Fiction",
@@ -387,7 +430,8 @@
     "price": 21.61
   },
   {
-    "id": "685187a450fe8081d94df5fc",
+    "_id": "68764319cf1b5e72758c1019",
+    "id": "68764319cf1b5e72758c1019",
     "title": "The principall navigations, voiages, and discoveries of the English nations",
     "author": "Richard Hakluyt",
     "genre": "Science",
@@ -396,7 +440,8 @@
     "price": 25.78
   },
   {
-    "id": "685187a450fe8081d94df5fd",
+    "_id": "68764319cf1b5e72758c101a",
+    "id": "68764319cf1b5e72758c101a",
     "title": "His Last Bow [8 stories]",
     "author": "Arthur Conan Doyle",
     "genre": "Mystery",
@@ -405,7 +450,8 @@
     "price": 17.04
   },
   {
-    "id": "685187a450fe8081d94df5fe",
+    "_id": "68764319cf1b5e72758c101b",
+    "id": "68764319cf1b5e72758c101b",
     "title": "Women in Love",
     "author": "D. H. Lawrence",
     "genre": "Romance",
@@ -414,7 +460,8 @@
     "price": 27.24
   },
   {
-    "id": "685187a450fe8081d94df5ff",
+    "_id": "68764319cf1b5e72758c101c",
+    "id": "68764319cf1b5e72758c101c",
     "title": "This Side of Paradise",
     "author": "F. Scott Fitzgerald",
     "genre": "Romance",
@@ -423,7 +470,8 @@
     "price": 20.6
   },
   {
-    "id": "685187a450fe8081d94df600",
+    "_id": "68764319cf1b5e72758c101d",
+    "id": "68764319cf1b5e72758c101d",
     "title": "Two years before the mast",
     "author": "Richard Henry Dana",
     "genre": "Science",
@@ -432,7 +480,8 @@
     "price": 13.73
   },
   {
-    "id": "685187a450fe8081d94df601",
+    "_id": "68764319cf1b5e72758c101e",
+    "id": "68764319cf1b5e72758c101e",
     "title": "Northanger Abbey",
     "author": "Jane Austen",
     "genre": "Romance",
@@ -441,7 +490,8 @@
     "price": 17.97
   },
   {
-    "id": "685187a450fe8081d94df602",
+    "_id": "68764319cf1b5e72758c101f",
+    "id": "68764319cf1b5e72758c101f",
     "title": "Dorothy and the Wizard in Oz",
     "author": "L. Frank Baum",
     "genre": "Fantasy",
@@ -450,7 +500,8 @@
     "price": 20.48
   },
   {
-    "id": "685187a450fe8081d94df603",
+    "_id": "68764319cf1b5e72758c1020",
+    "id": "68764319cf1b5e72758c1020",
     "title": "The Emerald City of Oz",
     "author": "L. Frank Baum",
     "genre": "Fantasy",
@@ -459,7 +510,8 @@
     "price": 25.47
   },
   {
-    "id": "685187a450fe8081d94df604",
+    "_id": "68764319cf1b5e72758c1021",
+    "id": "68764319cf1b5e72758c1021",
     "title": "Oliver Twist",
     "author": "Charles Dickens",
     "genre": "Fiction",
@@ -468,7 +520,8 @@
     "price": 21.61
   },
   {
-    "id": "685187a450fe8081d94df605",
+    "_id": "68764319cf1b5e72758c1022",
+    "id": "68764319cf1b5e72758c1022",
     "title": "The Prince",
     "author": "Niccolò Machiavelli",
     "genre": "History",
@@ -477,7 +530,8 @@
     "price": 12.86
   },
   {
-    "id": "685187a450fe8081d94df606",
+    "_id": "68764319cf1b5e72758c1023",
+    "id": "68764319cf1b5e72758c1023",
     "title": "A Tale of Two Cities",
     "author": "Charles Dickens",
     "genre": "Fiction",
@@ -486,7 +540,8 @@
     "price": 16.76
   },
   {
-    "id": "685187a450fe8081d94df607",
+    "_id": "68764319cf1b5e72758c1024",
+    "id": "68764319cf1b5e72758c1024",
     "title": "Divina Commedia",
     "author": "Dante Alighieri",
     "genre": "History",
@@ -495,7 +550,8 @@
     "price": 10.1
   },
   {
-    "id": "685187a450fe8081d94df608",
+    "_id": "68764319cf1b5e72758c1025",
+    "id": "68764319cf1b5e72758c1025",
     "title": "Anna Karenina",
     "author": "Лев Толстой",
     "genre": "Romance",
@@ -504,7 +560,8 @@
     "price": 13.46
   },
   {
-    "id": "685187a450fe8081d94df609",
+    "_id": "68764319cf1b5e72758c1026",
+    "id": "68764319cf1b5e72758c1026",
     "title": "History",
     "author": "Herodotus",
     "genre": "Science",
@@ -513,7 +570,8 @@
     "price": 20.24
   },
   {
-    "id": "685187a450fe8081d94df60a",
+    "_id": "68764319cf1b5e72758c1027",
+    "id": "68764319cf1b5e72758c1027",
     "title": "The Canterbury Tales",
     "author": "Geoffrey Chaucer",
     "genre": "Biography",
@@ -522,7 +580,8 @@
     "price": 12.17
   },
   {
-    "id": "685187a450fe8081d94df60b",
+    "_id": "68764319cf1b5e72758c1028",
+    "id": "68764319cf1b5e72758c1028",
     "title": "Frankenstein or The Modern Prometheus",
     "author": "Mary Shelley",
     "genre": "Fiction",
@@ -531,7 +590,8 @@
     "price": 23.35
   },
   {
-    "id": "685187a450fe8081d94df60c",
+    "_id": "68764319cf1b5e72758c1029",
+    "id": "68764319cf1b5e72758c1029",
     "title": "Uncle Tom's Cabin",
     "author": "Harriet Beecher Stowe",
     "genre": "Romance",
@@ -540,7 +600,8 @@
     "price": 13.94
   },
   {
-    "id": "685187a450fe8081d94df60d",
+    "_id": "68764319cf1b5e72758c102a",
+    "id": "68764319cf1b5e72758c102a",
     "title": "Jude the Obscure",
     "author": "Thomas Hardy",
     "genre": "Romance",
@@ -549,7 +610,8 @@
     "price": 15.27
   },
   {
-    "id": "685187a450fe8081d94df60e",
+    "_id": "68764319cf1b5e72758c102b",
+    "id": "68764319cf1b5e72758c102b",
     "title": "Greenmantle",
     "author": "John Buchan",
     "genre": "Mystery",
@@ -558,7 +620,8 @@
     "price": 18.34
   },
   {
-    "id": "685187a450fe8081d94df60f",
+    "_id": "68764319cf1b5e72758c102c",
+    "id": "68764319cf1b5e72758c102c",
     "title": "Don Quixote",
     "author": "Miguel de Cervantes Saavedra",
     "genre": "History",
@@ -567,7 +630,8 @@
     "price": 28.41
   },
   {
-    "id": "685187a450fe8081d94df610",
+    "_id": "68764319cf1b5e72758c102d",
+    "id": "68764319cf1b5e72758c102d",
     "title": "A Christmas Carol",
     "author": "Charles Dickens",
     "genre": "Fiction",
@@ -576,7 +640,8 @@
     "price": 20.04
   },
   {
-    "id": "685187a450fe8081d94df611",
+    "_id": "68764319cf1b5e72758c102e",
+    "id": "68764319cf1b5e72758c102e",
     "title": "Essays",
     "author": "Francis Bacon",
     "genre": "Science",
@@ -585,7 +650,8 @@
     "price": 10.54
   },
   {
-    "id": "685187a450fe8081d94df612",
+    "_id": "68764319cf1b5e72758c102f",
+    "id": "68764319cf1b5e72758c102f",
     "title": "De rerum natura",
     "author": "Titus Lucretius Carus",
     "genre": "Science",
@@ -594,7 +660,8 @@
     "price": 15.31
   },
   {
-    "id": "685187a450fe8081d94df613",
+    "_id": "68764319cf1b5e72758c1030",
+    "id": "68764319cf1b5e72758c1030",
     "title": "Преступление и наказание",
     "author": "Фёдор Михайлович Достоевский",
     "genre": "Mystery",
@@ -603,7 +670,8 @@
     "price": 17.21
   },
   {
-    "id": "685187a450fe8081d94df614",
+    "_id": "68764319cf1b5e72758c1031",
+    "id": "68764319cf1b5e72758c1031",
     "title": "Basil",
     "author": "Wilkie Collins",
     "genre": "Mystery",
@@ -612,7 +680,8 @@
     "price": 20.99
   },
   {
-    "id": "685187a450fe8081d94df615",
+    "_id": "68764319cf1b5e72758c1032",
+    "id": "68764319cf1b5e72758c1032",
     "title": "The Invisible Man",
     "author": "H. G. Wells",
     "genre": "Science",
@@ -621,7 +690,8 @@
     "price": 15.69
   },
   {
-    "id": "685187a450fe8081d94df616",
+    "_id": "68764319cf1b5e72758c1033",
+    "id": "68764319cf1b5e72758c1033",
     "title": "Julius Caesar",
     "author": "William Shakespeare",
     "genre": "Biography",
@@ -630,7 +700,8 @@
     "price": 15.65
   },
   {
-    "id": "685187a450fe8081d94df617",
+    "_id": "68764319cf1b5e72758c1034",
+    "id": "68764319cf1b5e72758c1034",
     "title": "The pioneers",
     "author": "James Fenimore Cooper",
     "genre": "Thriller",
@@ -639,7 +710,8 @@
     "price": 13.25
   },
   {
-    "id": "685187a450fe8081d94df618",
+    "_id": "68764319cf1b5e72758c1035",
+    "id": "68764319cf1b5e72758c1035",
     "title": "The Art of War",
     "author": "孙武",
     "genre": "History",
@@ -648,7 +720,8 @@
     "price": 21.77
   },
   {
-    "id": "685187a450fe8081d94df619",
+    "_id": "68764319cf1b5e72758c1036",
+    "id": "68764319cf1b5e72758c1036",
     "title": "The Island of Dr. Moreau",
     "author": "H. G. Wells",
     "genre": "Science",
@@ -657,7 +730,8 @@
     "price": 13.01
   },
   {
-    "id": "685187a450fe8081d94df61a",
+    "_id": "68764319cf1b5e72758c1037",
+    "id": "68764319cf1b5e72758c1037",
     "title": "Through the Looking-Glass",
     "author": "Lewis Carroll",
     "genre": "Fantasy",
@@ -666,7 +740,8 @@
     "price": 27.57
   },
   {
-    "id": "685187a450fe8081d94df61b",
+    "_id": "68764319cf1b5e72758c1038",
+    "id": "68764319cf1b5e72758c1038",
     "title": "The Pathfinder",
     "author": "James Fenimore Cooper",
     "genre": "Thriller",
@@ -675,7 +750,8 @@
     "price": 19.04
   },
   {
-    "id": "685187a450fe8081d94df61c",
+    "_id": "68764319cf1b5e72758c1039",
+    "id": "68764319cf1b5e72758c1039",
     "title": "A Midsummer Night's Dream",
     "author": "William Shakespeare",
     "genre": "Fantasy",
@@ -684,7 +760,8 @@
     "price": 12.28
   },
   {
-    "id": "685187a450fe8081d94df61d",
+    "_id": "68764319cf1b5e72758c103a",
+    "id": "68764319cf1b5e72758c103a",
     "title": "The Moonstone",
     "author": "Wilkie Collins",
     "genre": "Romance",
@@ -693,7 +770,8 @@
     "price": 17.08
   },
   {
-    "id": "685187a450fe8081d94df61e",
+    "_id": "68764319cf1b5e72758c103b",
+    "id": "68764319cf1b5e72758c103b",
     "title": "Captains Courageous",
     "author": "Rudyard Kipling",
     "genre": "Biography",
@@ -702,7 +780,8 @@
     "price": 18.26
   },
   {
-    "id": "685187a450fe8081d94df61f",
+    "_id": "68764319cf1b5e72758c103c",
+    "id": "68764319cf1b5e72758c103c",
     "title": "The Story of the Amulet",
     "author": "Edith Nesbit",
     "genre": "Fantasy",
@@ -711,7 +790,8 @@
     "price": 16.04
   },
   {
-    "id": "685187a450fe8081d94df620",
+    "_id": "68764319cf1b5e72758c103d",
+    "id": "68764319cf1b5e72758c103d",
     "title": "Mr. Standfast",
     "author": "John Buchan",
     "genre": "Thriller",
@@ -720,7 +800,8 @@
     "price": 11.62
   },
   {
-    "id": "685187a450fe8081d94df621",
+    "_id": "68764319cf1b5e72758c103e",
+    "id": "68764319cf1b5e72758c103e",
     "title": "The Prisoner of Zenda",
     "author": "Anthony Hope",
     "genre": "Thriller",
@@ -729,7 +810,8 @@
     "price": 14.43
   },
   {
-    "id": "685187a450fe8081d94df622",
+    "_id": "68764319cf1b5e72758c103f",
+    "id": "68764319cf1b5e72758c103f",
     "title": "The mystery of Edwin Drood",
     "author": "Charles Dickens",
     "genre": "Mystery",
@@ -738,7 +820,8 @@
     "price": 27.72
   },
   {
-    "id": "685187a450fe8081d94df623",
+    "_id": "68764319cf1b5e72758c1040",
+    "id": "68764319cf1b5e72758c1040",
     "title": "Bible",
     "author": "Bible",
     "genre": "History",
@@ -747,7 +830,8 @@
     "price": 26.28
   },
   {
-    "id": "685187a450fe8081d94df624",
+    "_id": "68764319cf1b5e72758c1041",
+    "id": "68764319cf1b5e72758c1041",
     "title": "Moralia",
     "author": "Plutarch",
     "genre": "Science",
@@ -756,7 +840,8 @@
     "price": 23.02
   },
   {
-    "id": "685187a450fe8081d94df625",
+    "_id": "68764319cf1b5e72758c1042",
+    "id": "68764319cf1b5e72758c1042",
     "title": "Dubliners",
     "author": "James Joyce",
     "genre": "Biography",
@@ -765,7 +850,8 @@
     "price": 15.9
   },
   {
-    "id": "685187a450fe8081d94df626",
+    "_id": "68764319cf1b5e72758c1043",
+    "id": "68764319cf1b5e72758c1043",
     "title": "The Jewel of Seven Stars",
     "author": "Bram Stoker",
     "genre": "Thriller",
@@ -774,7 +860,8 @@
     "price": 28.72
   },
   {
-    "id": "685187a450fe8081d94df627",
+    "_id": "68764319cf1b5e72758c1044",
+    "id": "68764319cf1b5e72758c1044",
     "title": "The Hound of the Baskervilles",
     "author": "Arthur Conan Doyle",
     "genre": "History",
@@ -783,7 +870,8 @@
     "price": 11.78
   },
   {
-    "id": "685187a450fe8081d94df628",
+    "_id": "68764319cf1b5e72758c1045",
+    "id": "68764319cf1b5e72758c1045",
     "title": "Prester John",
     "author": "John Buchan",
     "genre": "Mystery",
@@ -792,7 +880,8 @@
     "price": 21.81
   },
   {
-    "id": "685187a450fe8081d94df629",
+    "_id": "68764319cf1b5e72758c1046",
+    "id": "68764319cf1b5e72758c1046",
     "title": "Ab urbe condita",
     "author": "Titus Livius",
     "genre": "Biography",
@@ -801,7 +890,8 @@
     "price": 19.5
   },
   {
-    "id": "685187a450fe8081d94df62a",
+    "_id": "68764319cf1b5e72758c1047",
+    "id": "68764319cf1b5e72758c1047",
     "title": "Les Trois Mousquetaires",
     "author": "Alexandre Dumas",
     "genre": "History",
@@ -810,7 +900,8 @@
     "price": 21.28
   },
   {
-    "id": "685187a450fe8081d94df62b",
+    "_id": "68764319cf1b5e72758c1048",
+    "id": "68764319cf1b5e72758c1048",
     "title": "Dracula",
     "author": "Bram Stoker",
     "genre": "Thriller",
@@ -819,7 +910,8 @@
     "price": 27.27
   },
   {
-    "id": "685187a450fe8081d94df62c",
+    "_id": "68764319cf1b5e72758c1049",
+    "id": "68764319cf1b5e72758c1049",
     "title": "Madame Bovary",
     "author": "Gustave Flaubert",
     "genre": "History",
@@ -828,7 +920,8 @@
     "price": 12.56
   },
   {
-    "id": "685187a450fe8081d94df62d",
+    "_id": "68764319cf1b5e72758c104a",
+    "id": "68764319cf1b5e72758c104a",
     "title": "Ethan Frome",
     "author": "Edith Wharton",
     "genre": "Romance",
@@ -837,7 +930,8 @@
     "price": 14.9
   },
   {
-    "id": "685187a450fe8081d94df62e",
+    "_id": "68764319cf1b5e72758c104b",
+    "id": "68764319cf1b5e72758c104b",
     "title": "Harry Potter and the Philosopher's Stone",
     "author": "J. K. Rowling",
     "genre": "Mystery",
@@ -846,7 +940,8 @@
     "price": 26.53
   },
   {
-    "id": "685187a450fe8081d94df62f",
+    "_id": "68764319cf1b5e72758c104c",
+    "id": "68764319cf1b5e72758c104c",
     "title": "The Tenant of Wildfell Hall",
     "author": "Anne Brontë",
     "genre": "Biography",
@@ -855,7 +950,8 @@
     "price": 10.69
   },
   {
-    "id": "685187a450fe8081d94df630",
+    "_id": "68764319cf1b5e72758c104d",
+    "id": "68764319cf1b5e72758c104d",
     "title": "Le Tour du Monde en Quatre-Vingts Jours",
     "author": "Jules Verne",
     "genre": "Science",
@@ -864,7 +960,8 @@
     "price": 16.67
   },
   {
-    "id": "685187a450fe8081d94df631",
+    "_id": "68764319cf1b5e72758c104e",
+    "id": "68764319cf1b5e72758c104e",
     "title": "A strange disappearance",
     "author": "Anna Katharine Green",
     "genre": "Thriller",
@@ -873,7 +970,8 @@
     "price": 21.5
   },
   {
-    "id": "685187a450fe8081d94df632",
+    "_id": "68764319cf1b5e72758c104f",
+    "id": "68764319cf1b5e72758c104f",
     "title": "The Adventures of Sherlock Holmes [12 stories]",
     "author": "Arthur Conan Doyle",
     "genre": "History",
@@ -882,7 +980,8 @@
     "price": 17.14
   },
   {
-    "id": "685187a450fe8081d94df633",
+    "_id": "68764319cf1b5e72758c1050",
+    "id": "68764319cf1b5e72758c1050",
     "title": "White Fang",
     "author": "Jack London",
     "genre": "Thriller",
@@ -891,7 +990,8 @@
     "price": 26.71
   },
   {
-    "id": "685187a450fe8081d94df634",
+    "_id": "68764319cf1b5e72758c1051",
+    "id": "68764319cf1b5e72758c1051",
     "title": "Ozma of Oz",
     "author": "L. Frank Baum",
     "genre": "Fantasy",
@@ -900,7 +1000,8 @@
     "price": 14.01
   },
   {
-    "id": "685187a450fe8081d94df635",
+    "_id": "68764319cf1b5e72758c1052",
+    "id": "68764319cf1b5e72758c1052",
     "title": "The Mysterious Affair at Styles",
     "author": "Agatha Christie",
     "genre": "Mystery",
@@ -909,7 +1010,8 @@
     "price": 19.6
   },
   {
-    "id": "685187a450fe8081d94df636",
+    "_id": "68764319cf1b5e72758c1053",
+    "id": "68764319cf1b5e72758c1053",
     "title": "Wind in the Willows",
     "author": "Kenneth Grahame",
     "genre": "Fantasy",
@@ -918,7 +1020,8 @@
     "price": 12.95
   },
   {
-    "id": "685187a450fe8081d94df637",
+    "_id": "68764319cf1b5e72758c1054",
+    "id": "68764319cf1b5e72758c1054",
     "title": "Principles of Anatomy and Physiology",
     "author": "Gerard J. Tortora",
     "genre": "Science",
@@ -927,30 +1030,13 @@
     "price": 9.22
   },
   {
-    "id": "685187a450fe8081d94df638",
+    "_id": "68764319cf1b5e72758c1055",
+    "id": "68764319cf1b5e72758c1055",
     "title": "Le Comte de Monte Cristo",
     "author": "Alexandre Dumas",
     "genre": "Romance",
     "description": "No description available.",
     "coverImage": "https://covers.openlibrary.org/b/id/12307817-L.jpg",
     "price": 10.54
-  },
-  {
-    "id": "6856ee73a2f3f3cdb8ed9581",
-    "title": "The Red Badge of Courage",
-    "author": "The Red Badge of Courage",
-    "genre": "Thriller",
-    "description": "The Red Badge of Courage is a war novel...",
-    "coverImage": "https://covers.openlibrary.org/b/isbn/9788439280132-L.jpg",
-    "price": 21.4
-  },
-  {
-    "id": "6856f43e842afb722113d23e",
-    "title": "The Midnight Library",
-    "author": "Matt Haig",
-    "genre": "Fiction, Fantasy",
-    "description": "A novel about all the choices that go into a life well lived, and how every decision creates a different possible future.",
-    "coverImage": "https://covers.openlibrary.org/b/isbn/9780525559474-L.jpg",
-    "price": 22.99
   }
 ]
