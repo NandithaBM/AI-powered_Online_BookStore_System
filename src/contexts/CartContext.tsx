@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import toast from 'react-hot-toast';
+import { useAuth } from './AuthContext';
 
 interface CartItem {
   id: string;
@@ -24,24 +25,41 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [items, setItems] = useState<CartItem[]>([]);
+  const { user } = useAuth();
+  const cartKey = user ? `cart_${user._id}` : 'cart_guest';
 
-  // Load cart from localStorage on mount
+  const [items, setItems] = useState<CartItem[]>(() => {
+    const savedCart = localStorage.getItem(cartKey);
+    if (savedCart) {
+      try {
+        return JSON.parse(savedCart);
+      } catch (error) {
+        console.error('Error loading cart from localStorage:', error);
+        return [];
+      }
+    }
+    return [];
+  });
+
+  // Reload cart when user changes
   useEffect(() => {
-    const savedCart = localStorage.getItem('cart');
+    const savedCart = localStorage.getItem(cartKey);
     if (savedCart) {
       try {
         setItems(JSON.parse(savedCart));
       } catch (error) {
-        console.error('Error loading cart from localStorage:', error);
+        setItems([]);
       }
+    } else {
+      setItems([]);
     }
-  }, []);
+    // eslint-disable-next-line
+  }, [cartKey]);
 
-  // Save cart to localStorage whenever items change
+  // Save cart to localStorage whenever items or user changes
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(items));
-  }, [items]);
+    localStorage.setItem(cartKey, JSON.stringify(items));
+  }, [items, cartKey]);
 
   const addToCart = (book: Omit<CartItem, 'quantity'>) => {
     setItems(prev => {

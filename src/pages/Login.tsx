@@ -13,6 +13,10 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Get redirect destination from query string
+  const params = new URLSearchParams(location.search);
+  const redirect = params.get('redirect');
+
   const from = location.state?.from?.pathname || '/';
 
   const validateLogin = () => {
@@ -35,7 +39,12 @@ const Login = () => {
     setLoading(true);
     try {
       await login(identifier, password);
-      navigate(from, { replace: true });
+      // Redirect to intended destination or home
+      if (redirect) {
+        navigate(redirect, { replace: true });
+      } else {
+        navigate('/', { replace: true });
+      }
     } catch (error: any) {
       setError(error.message || 'Login failed');
     } finally {
@@ -65,6 +74,11 @@ const Login = () => {
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          {redirect === '/checkout' && (
+            <div className="mb-4 p-3 bg-yellow-100 text-yellow-800 rounded text-center font-semibold">
+              Please log in to continue checkout
+            </div>
+          )}
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label

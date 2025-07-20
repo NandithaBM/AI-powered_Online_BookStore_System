@@ -27,6 +27,7 @@ import Payment from './pages/Payment';
 import SearchResults from './pages/SearchResults';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
+import Analytics from './pages/admin/Analytics';
 
 
 function App() {
@@ -101,6 +102,7 @@ function App() {
                       <EditBook />
                     </AdminRoute>
                   } />
+                <Route path="/admin/analytics" element={<Analytics />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/reset-password/:token" element={<ResetPassword />} />
 

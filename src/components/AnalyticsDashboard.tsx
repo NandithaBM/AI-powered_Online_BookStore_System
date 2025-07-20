@@ -88,10 +88,18 @@ const AnalyticsDashboard: React.FC = () => {
     startDate: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
     endDate: new Date().toISOString().split('T')[0]
   });
+  const [sentimentData, setSentimentData] = useState<any[]>([]);
+  const [sentimentLoading, setSentimentLoading] = useState(false);
 
   useEffect(() => {
     fetchAnalytics();
   }, [dateRange]);
+
+  useEffect(() => {
+    if (data && data.sales.topBooks.length > 0) {
+      fetchSentimentForTopBooks();
+    }
+  }, [data]);
 
   const fetchAnalytics = async () => {
     setLoading(true);
@@ -118,6 +126,39 @@ const AnalyticsDashboard: React.FC = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  // Fetch real sentiment data for top 5 books
+  const fetchSentimentForTopBooks = async () => {
+    setSentimentLoading(true);
+    const topBooks = data!.sales.topBooks.slice(0, 5);
+    const results = await Promise.all(
+      topBooks.map(async (book, i) => {
+        const id = book._id;
+        try {
+          const res = await fetch(`/books/${id}/sentiment`);
+          if (!res.ok) throw new Error('Failed');
+          const sentiment = await res.json();
+          return {
+            title: book.bookDetails[0]?.title || `Book ${i+1}`,
+            positive: sentiment.positive || 0,
+            neutral: sentiment.neutral || 0,
+            negative: sentiment.negative || 0,
+            averageScore: typeof sentiment.averageScore === 'number' ? sentiment.averageScore : null
+          };
+        } catch {
+          return {
+            title: book.bookDetails[0]?.title || `Book ${i+1}`,
+            positive: 0,
+            neutral: 0,
+            negative: 0,
+            averageScore: null
+          };
+        }
+      })
+    );
+    setSentimentData(results);
+    setSentimentLoading(false);
   };
 
   const downloadReport = async () => {
@@ -360,6 +401,42 @@ const AnalyticsDashboard: React.FC = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Sentiment Analytics for Top Books */}
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold text-gray-800 mb-4">Sentiment Analytics (Top 5 Books)</h3>
+          {sentimentLoading ? (
+            <div className="flex items-center justify-center h-32">
+              <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600"></div>
+            </div>
+          ) : (
+            <>
+              <ResponsiveContainer width="100%" height={250}>
+                <BarChart data={sentimentData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
+                  <XAxis dataKey="title" tick={{ fontSize: 12 }} interval={0} angle={-15} textAnchor="end" />
+                  <YAxis allowDecimals={false} />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="positive" stackId="a" fill="#22c55e" name="Positive" />
+                  <Bar dataKey="neutral" stackId="a" fill="#a3a3a3" name="Neutral" />
+                  <Bar dataKey="negative" stackId="a" fill="#ef4444" name="Negative" />
+                </BarChart>
+              </ResponsiveContainer>
+              <div className="flex flex-wrap gap-4 mt-4">
+                {sentimentData.map((book, idx) => (
+                  <div key={idx} className="flex flex-col items-center">
+                    <span className="font-medium text-gray-800 text-sm mb-1">{book.title}</span>
+                    {typeof book.averageScore === 'number' ? (
+                      <span className="px-2 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-semibold">Avg. Score: {book.averageScore.toFixed(2)}</span>
+                    ) : (
+                      <span className="px-2 py-1 rounded-full bg-gray-100 text-gray-600 text-xs">No score</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
 

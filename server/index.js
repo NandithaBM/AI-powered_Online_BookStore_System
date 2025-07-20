@@ -20,6 +20,7 @@ import semanticSearchRouter from './routes/semantic-search.js';
 import sentimentRouter from './routes/sentiment.js';
 import recommendRouter from './routes/recommend.js';
 import recommendationsRoutes from './routes/recommendations.js';
+import analyticsRoutes from './routes/analytics.js';
 
 dotenv.config();
 // console.log('GMAIL_USER:', process.env.GMAIL_USER);
@@ -74,6 +75,7 @@ app.use('/api/semantic-search', semanticSearchRouter);
 app.use('/api/sentiment', sentimentRouter);
 app.use('/api/recommend', recommendRouter);
 app.use('/api/recommendations', recommendationsRoutes);
+app.use('/api/analytics', analyticsRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {

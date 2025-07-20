@@ -194,10 +194,10 @@ const AdminOrders = () => {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div>
                           <div className="text-sm font-medium text-gray-900">
-                            {order.user.name}
+                            {order.user?.name || 'Unknown User'}
                           </div>
                           <div className="text-sm text-gray-500">
-                            {order.user.email}
+                            {order.user?.email || 'No email'}
                           </div>
                         </div>
                       </td>
@@ -208,7 +208,7 @@ const AdminOrders = () => {
                         <div className="text-xs text-gray-500">
                           {order.items.slice(0, 2).map((item, index) => (
                             <div key={index}>
-                              {item.book.title} (x{item.quantity})
+                              {(item.book && item.book.title) ? `${item.book.title} (x${item.quantity})` : `Unknown Book (x${item.quantity})`}
                             </div>
                           ))}
                           {order.items.length > 2 && (

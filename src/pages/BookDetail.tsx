@@ -11,8 +11,18 @@ import {
   Package,
   Award,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Info
 } from 'lucide-react';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip as RechartsTooltip,
+  ResponsiveContainer,
+  Cell
+} from 'recharts';
 import axios from 'axios';
 import { useCart } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
@@ -82,12 +92,14 @@ const BookDetail = () => {
   const isInWishlist = wishlist.some((b) => b._id === book?._id);
   const [recommendations, setRecommendations] = useState<any[]>([]);
    const [relatedBooks, setRelatedBooks] = useState<Book[]>([]);
+  const [sentiment, setSentiment] = useState<any>(null);
   const fallbackImage = '/default-book-cover.png'; // Place this in your public directory
 
   useEffect(() => {
     if (id) {
       fetchBook();
       fetchRelatedBooks();
+      fetchSentiment();
     }
   }, [id]);
 
@@ -128,6 +140,15 @@ const BookDetail = () => {
     } catch (error) {
       console.error('Error fetching related books:', error);
       setRelatedBooks([]);
+    }
+  };
+
+  const fetchSentiment = async () => {
+    try {
+      const response = await axios.get(`/books/${id}/sentiment`);
+      setSentiment(response.data);
+    } catch (error) {
+      setSentiment(null);
     }
   };
 
@@ -409,6 +430,60 @@ const BookDetail = () => {
 
         {/* Reviews */}
         <div className="bg-white rounded-lg shadow-sm p-6 mb-12">
+          {/* Sentiment Analytics */}
+          {sentiment && (
+            <div className="mb-8">
+              <h3 className="text-lg font-semibold mb-2">Review Sentiment Summary</h3>
+              {/* Sentiment Bar Chart */}
+              <div className="w-full max-w-md mb-4">
+                <ResponsiveContainer width="100%" height={40}>
+                  <BarChart
+                    data={[
+                      { name: 'Positive', value: sentiment.positive },
+                      { name: 'Neutral', value: sentiment.neutral },
+                      { name: 'Negative', value: sentiment.negative },
+                    ]}
+                    layout="vertical"
+                    margin={{ left: 20, right: 20 }}
+                  >
+                    <XAxis type="number" hide domain={[0, Math.max(sentiment.positive, sentiment.neutral, sentiment.negative, 1)]} />
+                    <YAxis type="category" dataKey="name" hide />
+                    <RechartsTooltip formatter={(v) => [v, 'Reviews']} />
+                    <Bar dataKey="value">
+                      <Cell fill="#22c55e" />
+                      <Cell fill="#a3a3a3" />
+                      <Cell fill="#ef4444" />
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+                <div className="flex justify-between text-xs text-gray-600 mt-1 px-2">
+                  <span>Positive</span>
+                  <span>Neutral</span>
+                  <span>Negative</span>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-4 items-center">
+                <span className="px-3 py-1 rounded-full bg-green-100 text-green-800 font-medium">
+                  Positive: {sentiment.positive}
+                </span>
+                <span className="px-3 py-1 rounded-full bg-gray-200 text-gray-800 font-medium">
+                  Neutral: {sentiment.neutral}
+                </span>
+                <span className="px-3 py-1 rounded-full bg-red-100 text-red-800 font-medium">
+                  Negative: {sentiment.negative}
+                </span>
+                {typeof sentiment.averageScore === 'number' && (
+                  <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-800 font-medium flex items-center" title="Average sentiment score (from review analysis)">
+                    <Info className="w-4 h-4 mr-1 inline-block" />
+                    Avg. Score: {sentiment.averageScore.toFixed(2)}
+                  </span>
+                )}
+                <span className="px-3 py-1 rounded-full bg-gray-100 text-gray-800 font-medium">
+                  Total: {sentiment.total}
+                </span>
+              </div>
+            </div>
+          )}
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-gray-900">Reviews</h2>
             {user && (

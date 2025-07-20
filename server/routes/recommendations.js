@@ -1,11 +1,10 @@
-import express from 'express';
-import Book from '../models/Book.js';
-import User from '../models/User.js';
-import { auth } from '../middleware/auth.js';
-import axios from 'axios';
-import Order from '../models/Order.js';
-
+const express = require('express');
 const router = express.Router();
+const Book = require('../models/Book.js');
+const User = require('../models/User.js');
+const { auth } = require('../middleware/auth.js');
+const axios = require('axios');
+const Order = require('../models/Order.js');
 
 // Get personalized recommendations
 router.get('/', auth, async (req, res) => {
@@ -242,4 +241,4 @@ async function generateRecommendations(user) {
   return recommendations.slice(0, 8);
 }
 
-export default router;
+module.exports = router;

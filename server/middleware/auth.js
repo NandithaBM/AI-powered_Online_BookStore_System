@@ -1,10 +1,10 @@
-import jwt from 'jsonwebtoken';
-import User from '../models/User.js';
+const jwt = require('jsonwebtoken');
+const User = require('../models/User');
 
 /**
  * Middleware to authenticate a user via JWT
  */
-export const auth = async (req, res, next) => {
+const auth = async (req, res, next) => {
   try {
     const token = req.header('Authorization')?.replace('Bearer ', '');
 
@@ -25,15 +25,11 @@ export const auth = async (req, res, next) => {
 /**
  * Middleware to restrict access to admin users only
  */
-export const adminAuth = async (req, res, next) => {
-  try {
-    if (!req.user || req.user.role !== 'admin') {
-      return res.status(403).json({ message: 'Access denied. Admin privileges required.' });
-    }
-
-    next();
-  } catch (error) {
-    console.error('Admin auth middleware error:', error);
-    res.status(500).json({ message: 'Server error' });
+const adminAuth = (req, res, next) => {
+  if (!req.user || req.user.role !== 'admin') {
+    return res.status(403).json({ error: 'Admin access required' });
   }
+  next();
 };
+
+module.exports = { auth, adminAuth };

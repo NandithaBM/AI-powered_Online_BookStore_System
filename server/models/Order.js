@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const orderItemSchema = new mongoose.Schema({
   book: {
@@ -115,7 +115,6 @@ const orderSchema = new mongoose.Schema({
   timestamps: true,
 });
 
-// Generate order number
 orderSchema.pre('save', async function(next) {
   if (this.isNew && !this.orderNumber) {
     const count = await mongoose.model('Order').countDocuments();
@@ -124,10 +123,8 @@ orderSchema.pre('save', async function(next) {
   next();
 });
 
-// Indexes
 orderSchema.index({ user: 1 });
-//orderSchema.index({ orderNumber: 1 });
 orderSchema.index({ status: 1 });
 orderSchema.index({ createdAt: -1 });
 
-export default mongoose.model('Order', orderSchema);
+module.exports = mongoose.model('Order', orderSchema);

@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
-import Book from '../models/Book.js';
-import fs from 'fs';
+const mongoose = require('mongoose');
+const Book = require('../models/Book');
+const fs = require('fs');
 
 const books = JSON.parse(fs.readFileSync('semantic-search/books_meta.json', 'utf-8'));
 const semanticIds = books.map(b => b.id);

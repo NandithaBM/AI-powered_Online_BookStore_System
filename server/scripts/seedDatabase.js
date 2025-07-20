@@ -1,9 +1,10 @@
-import mongoose from 'mongoose';
-import bcrypt from 'bcryptjs';
-import dotenv from 'dotenv';
-import Book from '../models/Book.js';
-import User from '../models/User.js';
-import { sampleBooks } from '../data/sampleBooks.js';
+const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+const dotenv = require('dotenv');
+const Book = require('../models/Book');
+const User = require('../models/User');
+const Order = require('../models/Order');
+const { sampleBooks } = require('../data/sampleBooks');
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ async function seedDatabase() {
     // Clear existing data
     await Book.deleteMany({});
     await User.deleteMany({});
+    await Order.deleteMany({}); // Clear orders as well
     console.log('Cleared existing data');
 
     // Create sample books

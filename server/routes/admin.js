@@ -1,8 +1,8 @@
-import express from 'express';
-import Book from '../models/Book.js';
-import Order from '../models/Order.js';
-import User from '../models/User.js';
-import { auth, adminAuth } from '../middleware/auth.js';
+const express = require('express');
+const Book = require('../models/Book');
+const Order = require('../models/Order');
+const User = require('../models/User');
+const { auth, adminAuth } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -98,21 +98,6 @@ router.get('/books', async (req, res) => {
   }
 });
 
-// // Create book
-// router.post('/books', async (req, res) => {
-//   try {
-//     const book = new Book(req.body);
-//     await book.save();
-
-//     res.status(201).json({
-//       message: 'Book created successfully',
-//       book,
-//     });
-//   } catch (error) {
-//     console.error('Create book error:', error);
-//     res.status(500).json({ message: 'Server error' });
-//   }
-// });
 // Create book
 router.post('/books', async (req, res) => {
   try {
@@ -152,7 +137,7 @@ router.post('/books', async (req, res) => {
       coverImage,
       isActive: true,
       isFeatured: isFeatured || false,
-      isNewRelease: isNewRelease || false, // ✅ <-- this line makes it work
+      isNewRelease: isNewRelease || false,
       ratings: {
         average: 0,
         count: 0,
@@ -292,4 +277,4 @@ router.patch('/orders/:id/status', async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

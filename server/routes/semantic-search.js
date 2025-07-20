@@ -1,6 +1,6 @@
-import express from 'express';
-import axios from 'axios';
+const express = require('express');
 const router = express.Router();
+// ... your require statements for services/models ...
 
 // Proxy GET /api/semantic-search?query=...&limit=...
 router.get('/', async (req, res) => {
@@ -15,4 +15,4 @@ router.get('/', async (req, res) => {
   }
 });
 
-export default router; 
+module.exports = router; 

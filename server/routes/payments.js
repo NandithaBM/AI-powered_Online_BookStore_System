@@ -5,6 +5,7 @@ const auth = require('../middleware/auth');
 const Order = require('../models/Order');
 const Book = require('../models/Book');
 const invoiceService = require('../services/invoiceService');
+const { updateBestsellers } = require('../utils/updateBestsellers.js');
 
 // Create payment intent
 router.post('/create-payment-intent', auth, async (req, res) => {
@@ -114,6 +115,9 @@ router.post('/confirm-payment', auth, async (req, res) => {
     order.paymentStatus = 'paid';
     order.paidAt = new Date();
     await order.save();
+
+    // Update bestsellers after order completion
+    await updateBestsellers();
 
     // Generate and send invoice
     try {

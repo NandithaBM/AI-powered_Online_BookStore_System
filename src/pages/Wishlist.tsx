@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, ShoppingCart, Trash2 } from 'lucide-react';
 import { useCart } from '../contexts/CartContext';
 import { useWishlist } from '../contexts/WishlistContext';
 
 const Wishlist = () => {
-  const { wishlist, loading, removeFromWishlist } = useWishlist();
+  const { wishlist, loading, removeFromWishlist, fetchWishlist } = useWishlist();
   const { addToCart } = useCart();
+
+  useEffect(() => {
+    fetchWishlist();
+    // eslint-disable-next-line
+  }, []);
 
   const handleAddToCart = (book: any) => {
     addToCart({

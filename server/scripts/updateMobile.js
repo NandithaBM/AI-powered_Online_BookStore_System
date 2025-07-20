@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import User from '../models/User.js';
+const mongoose = require('mongoose');
+const User = require('../models/User');
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/books';
 

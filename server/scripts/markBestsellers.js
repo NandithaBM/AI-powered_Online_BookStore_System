@@ -1,12 +1,10 @@
-import mongoose from 'mongoose';
-import Book from '../models/Book.js';
+const mongoose = require('mongoose');
+const Book = require('../models/Book');
 
-const MONGO_URI = 'mongodb://localhost:27017/books'; // <-- Replace with your actual DB name
+const MONGO_URI = 'mongodb://localhost:27017/books';
 
 async function markBestsellers() {
   await mongoose.connect(MONGO_URI);
-
-  // Mark the first 8 books as bestsellers and active
   const books = await Book.find({}).limit(8);
   for (const book of books) {
     book.isBestseller = true;
@@ -18,7 +16,6 @@ async function markBestsellers() {
       console.error(`Failed to mark ${book.title}:`, err.message);
     }
   }
-
   await mongoose.disconnect();
   console.log('Done.');
 }

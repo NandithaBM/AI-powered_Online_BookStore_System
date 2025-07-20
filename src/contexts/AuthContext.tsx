@@ -75,6 +75,33 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       const response = await axios.post('/auth/login', { identifier, password });
       const { token: newToken, user: userData } = response.data;
       
+      // --- Merge guest cart into user cart ---
+      const guestCart = localStorage.getItem('cart_guest');
+      const userCartKey = `cart_${userData._id}`;
+      const userCart = localStorage.getItem(userCartKey);
+      let mergedCart = [];
+      if (guestCart) {
+        const guestItems = JSON.parse(guestCart);
+        let userItems = [];
+        if (userCart) {
+          userItems = JSON.parse(userCart);
+        }
+        // Merge logic: sum quantities for duplicate items
+        const itemMap = new Map();
+        [...userItems, ...guestItems].forEach(item => {
+          if (itemMap.has(item.id)) {
+            const existing = itemMap.get(item.id);
+            itemMap.set(item.id, { ...existing, quantity: existing.quantity + item.quantity });
+          } else {
+            itemMap.set(item.id, { ...item });
+          }
+        });
+        mergedCart = Array.from(itemMap.values());
+        localStorage.setItem(userCartKey, JSON.stringify(mergedCart));
+        localStorage.removeItem('cart_guest');
+      }
+      // --- End merge ---
+
       setToken(newToken);
       setUser(userData);
       localStorage.setItem('token', newToken);

@@ -1,7 +1,7 @@
-import express from 'express';
-import Order from '../models/Order.js';
-import Book from '../models/Book.js';
-import { auth } from '../middleware/auth.js';
+const express = require('express');
+const Order = require('../models/Order');
+const Book = require('../models/Book');
+const { auth } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -174,4 +174,4 @@ router.patch('/:id/cancel', auth, async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

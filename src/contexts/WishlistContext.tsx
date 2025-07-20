@@ -43,8 +43,8 @@ export const WishlistProvider: React.FC<{ children: ReactNode }> = ({ children }
 
   const addToWishlist = async (bookId: string) => {
     try {
-      const res = await axios.post(`/users/wishlist/${bookId}`);
-      setWishlist(res.data.wishlist);
+      await axios.post(`/users/wishlist/${bookId}`);
+      await fetchWishlist(); // Always fetch the latest from backend
       toast.success('Added to wishlist');
     } catch (err: any) {
       toast.error(err.response?.data?.message || 'Error adding to wishlist');

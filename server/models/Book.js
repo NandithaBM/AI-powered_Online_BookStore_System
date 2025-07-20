@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const reviewSchema = new mongoose.Schema({
   user: {
@@ -174,7 +174,6 @@ const bookSchema = new mongoose.Schema({
   timestamps: true,
 });
 
-// Indexes for better search performance
 bookSchema.index({ title: 'text', author: 'text', description: 'text' });
 bookSchema.index({ genre: 1 });
 bookSchema.index({ author: 1 });
@@ -185,26 +184,44 @@ bookSchema.index({ isFeatured: 1 });
 bookSchema.index({ isNewRelease: 1 });
 bookSchema.index({ isBestseller: 1 });
 
-// Update ratings when a review is added
 bookSchema.methods.updateRatings = function() {
   const reviews = this.reviews;
   const count = reviews.length;
-  
   if (count === 0) {
     this.ratings.average = 0;
     this.ratings.count = 0;
     return;
   }
-  
   const sum = reviews.reduce((acc, review) => acc + review.rating, 0);
   this.ratings.average = Math.round((sum / count) * 10) / 10;
   this.ratings.count = count;
-  
-  // Update distribution
   this.ratings.distribution = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
   reviews.forEach(review => {
     this.ratings.distribution[review.rating]++;
   });
 };
 
-export default mongoose.model('Book', bookSchema);
+bookSchema.methods.aggregateSentiment = function() {
+  const reviews = this.reviews || [];
+  const sentimentCounts = { positive: 0, neutral: 0, negative: 0 };
+  let sentimentScoreSum = 0;
+  let sentimentScoreCount = 0;
+  reviews.forEach(review => {
+    if (review.sentiment && sentimentCounts.hasOwnProperty(review.sentiment)) {
+      sentimentCounts[review.sentiment]++;
+    }
+    if (review.metadata && typeof review.metadata.score === 'number') {
+      sentimentScoreSum += review.metadata.score;
+      sentimentScoreCount++;
+    }
+  });
+  const averageScore = sentimentScoreCount > 0 ? (sentimentScoreSum / sentimentScoreCount) : null;
+  this.sentimentSummary = {
+    ...sentimentCounts,
+    total: reviews.length,
+    averageScore
+  };
+  return this.sentimentSummary;
+};
+
+module.exports = mongoose.model('Book', bookSchema);

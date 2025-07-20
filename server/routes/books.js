@@ -1,8 +1,8 @@
-import express from 'express';
-import Book from '../models/Book.js';
-import { auth } from '../middleware/auth.js';
-import Order from '../models/Order.js';
-import remoteSentiment from '../services/remoteSentimentAnalysis.js';
+const express = require('express');
+const Book = require('../models/Book');
+const { auth } = require('../middleware/auth');
+const Order = require('../models/Order');
+const remoteSentiment = require('../services/remoteSentimentAnalysis');
 
 const router = express.Router();
 
@@ -219,6 +219,21 @@ router.get('/:id/reviews', async (req, res) => {
   }
 });
 
+// Get aggregated sentiment for a specific book
+router.get('/:id/sentiment', async (req, res) => {
+  try {
+    const book = await Book.findById(req.params.id);
+    if (!book) {
+      return res.status(404).json({ message: 'Book not found' });
+    }
+    const sentimentSummary = book.aggregateSentiment();
+    res.json(sentimentSummary);
+  } catch (error) {
+    console.error('Get book sentiment error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 // Get related books (by genre, author, and customers also bought)
 router.get('/:id/related', async (req, res) => {
   try {
@@ -297,4 +312,4 @@ router.get('/meta/authors', async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

@@ -241,6 +241,13 @@ const AdminDashboard = () => {
                   <span className="font-medium">Process Orders</span>
                 </div>
               </button>
+              <button className="w-full text-left p-3 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors"
+               onClick={() => navigate('/admin/analytics')}>
+                <div className="flex items-center">
+                <TrendingUp className="h-5 w-5 text-primary-600 mr-3" />
+                <span className="font-medium">Go to Analytics</span>
+                </div>
+              </button>
             </div>
           </div>
 

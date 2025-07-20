@@ -1,9 +1,8 @@
-import express from 'express';
-import User from '../models/User.js';
-import Book from '../models/Book.js';
-import { auth } from '../middleware/auth.js';
-
+const express = require('express');
 const router = express.Router();
+const User = require('../models/User.js');
+const Book = require('../models/Book.js');
+const { auth } = require('../middleware/auth.js');
 
 // Update user profile
 router.put('/profile', auth, async (req, res) => {
@@ -116,9 +115,13 @@ router.delete('/wishlist/:bookId', auth, async (req, res) => {
     );
     await user.save();
 
+    // Re-populate wishlist with book details
+    const updatedUser = await User.findById(req.user.userId)
+      .populate('wishlist', 'title author coverImage price ratings genre');
+
     res.json({
       message: 'Book removed from wishlist',
-      wishlist: user.wishlist,
+      wishlist: updatedUser.wishlist,
     });
   } catch (error) {
     console.error('Remove from wishlist error:', error);
@@ -204,4 +207,4 @@ router.post('/change-password', auth, async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

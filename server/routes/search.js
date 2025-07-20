@@ -1,8 +1,8 @@
-import express from 'express';
-import Book from '../models/Book.js';
-import semanticSearch from '../services/semanticSearch.js';
-import recommendationEngine from '../services/recommendationEngine.js';
-import { spawnSync } from 'child_process';
+const express = require('express');
+const Book = require('../models/Book.js');
+const semanticSearch = require('../services/semanticSearch.js');
+const recommendationEngine = require('../services/recommendationEngine.js');
+const { spawnSync } = require('child_process');
 
 const router = express.Router();
 
@@ -182,4 +182,4 @@ router.post('/reindex', async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

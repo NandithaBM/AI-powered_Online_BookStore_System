@@ -1,6 +1,6 @@
-import express from 'express';
-import axios from 'axios';
-import Book from '../models/Book.js';
+const express = require('express');
+const axios = require('axios');
+const Book = require('../models/Book.js');
 const router = express.Router();
 
 // Proxy GET /api/recommend?book_id=...&limit=...
@@ -28,4 +28,4 @@ router.get('/', async (req, res) => {
   }
 });
 
-export default router; 
+module.exports = router; 

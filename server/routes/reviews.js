@@ -1,8 +1,8 @@
-import express from 'express';
-import { auth } from '../middleware/auth.js';
-import Review from '../models/Review.js';
-import sentiment from '../services/sentimentAnalysis.js';
-import remoteSentiment from '../services/remoteSentimentAnalysis.js';
+const express = require('express');
+const { auth } = require('../middleware/auth');
+const Review = require('../models/Review');
+const sentiment = require('../services/sentimentAnalysis');
+const remoteSentiment = require('../services/remoteSentimentAnalysis');
 
 const router = express.Router();
 
@@ -73,4 +73,4 @@ router.get('/books/:id/reviews', async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;
