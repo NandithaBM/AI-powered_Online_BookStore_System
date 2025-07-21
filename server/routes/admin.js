@@ -154,6 +154,21 @@ router.post('/books', async (req, res) => {
 
     await newBook.save();
 
+    // Trigger semantic search index update
+    const { exec } = require('child_process');
+    exec('python semantic-search/generate_vectors.py', (err, stdout, stderr) => {
+      if (err) {
+        console.error('Error updating semantic index:', err);
+      } else {
+        console.log('Semantic index updated:', stdout);
+        // Call the Python service to reload the index
+        const axios = require('axios');
+        axios.post('http://localhost:8000/reload-index')
+          .then(res => console.log('Python index reloaded:', res.data))
+          .catch(error => console.error('Failed to reload Python index:', error.message));
+      }
+    });
+
     res.status(201).json({
       message: 'Book created successfully',
       book: newBook,

@@ -152,34 +152,34 @@ const PaymentFormContent: React.FC<PaymentFormProps> = ({
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Security Badge */}
-      <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center space-x-3">
+      <div className="bg-green-50 dark:bg-green-900 border border-green-200 dark:border-green-700 rounded-lg p-4 flex items-center space-x-3">
         <Shield className="w-6 h-6 text-green-600" />
         <div>
-          <p className="text-sm font-medium text-green-800">Secure Payment</p>
-          <p className="text-xs text-green-600">Your payment information is encrypted and secure</p>
+          <p className="text-sm font-medium text-green-800 dark:text-green-200">Secure Payment</p>
+          <p className="text-xs text-green-600 dark:text-green-300">Your payment information is encrypted and secure</p>
         </div>
         <Lock className="w-5 h-5 text-green-600" />
       </div>
 
       {/* Order Summary */}
-      <div className="bg-gray-50 rounded-lg p-4">
-        <h4 className="font-semibold text-gray-800 mb-3 flex items-center">
+      <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+        <h4 className="font-semibold text-gray-800 dark:text-white mb-3 flex items-center">
           <CreditCard className="w-5 h-5 mr-2" />
           Payment Summary
         </h4>
         <div className="space-y-2 text-sm">
           {orderItems.map((item, index) => (
             <div key={index} className="flex justify-between">
-              <span className="text-gray-600">
+              <span className="text-gray-600 dark:text-gray-300">
                 {item.title} × {item.quantity}
               </span>
-              <span className="font-medium">₹{(item.price * item.quantity).toFixed(2)}</span>
+              <span className="font-medium text-gray-900 dark:text-white">₹{(item.price * item.quantity).toFixed(2)}</span>
             </div>
           ))}
-          <div className="border-t pt-2 mt-2">
+          <div className="border-t border-gray-200 dark:border-gray-700 pt-2 mt-2">
             <div className="flex justify-between font-semibold text-lg">
-              <span>Total:</span>
-              <span className="text-blue-600">₹{totalAmount.toFixed(2)}</span>
+              <span className="text-gray-900 dark:text-white">Total:</span>
+              <span className="text-blue-600 dark:text-blue-400">₹{totalAmount.toFixed(2)}</span>
             </div>
           </div>
         </div>
@@ -187,16 +187,16 @@ const PaymentFormContent: React.FC<PaymentFormProps> = ({
 
       {/* Card Element */}
       <div className="space-y-4">
-        <label className="block text-sm font-medium text-gray-700">
+        <label className="block text-sm font-medium text-gray-700 dark:text-white">
           Card Information
         </label>
-        <div className="border border-gray-300 rounded-lg p-4 bg-white">
+        <div className="border border-gray-300 dark:border-gray-600 rounded-lg p-4 bg-white dark:bg-gray-800">
           <CardElement
             options={{
               style: {
                 base: {
                   fontSize: '16px',
-                  color: '#424770',
+                  color: '#fff',
                   fontFamily: 'Arial, sans-serif',
                   '::placeholder': {
                     color: '#aab7c4'
@@ -233,7 +233,7 @@ const PaymentFormContent: React.FC<PaymentFormProps> = ({
       </motion.button>
 
       {/* Trust Indicators */}
-      <div className="flex items-center justify-center space-x-6 text-xs text-gray-500 pt-4">
+      <div className="flex items-center justify-center space-x-6 text-xs text-gray-500 dark:text-gray-400 pt-4">
         <div className="flex items-center space-x-1">
           <Shield className="w-4 h-4" />
           <span>SSL Encrypted</span>

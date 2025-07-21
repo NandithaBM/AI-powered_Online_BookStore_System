@@ -1,6 +1,7 @@
 const express = require('express');
 const { auth, adminAuth } = require('../middleware/auth');
 const recommendationEngine = require('../services/recommendationEngine');
+const RecommendationFeedback = require('../models/RecommendationFeedback');
 
 const router = express.Router();
 
@@ -50,6 +51,28 @@ router.post('/track', auth, async (req, res) => {
   } catch (error) {
     console.error('Tracking error:', error);
     res.status(500).json({ error: 'Failed to track interaction' });
+  }
+});
+
+// POST: User feedback on recommendation explanations
+router.post('/feedback', auth, async (req, res) => {
+  try {
+    const { bookId, feedback, comment } = req.body;
+    const userId = req.user.id;
+    if (!bookId || typeof feedback === 'undefined') {
+      return res.status(400).json({ error: 'bookId and feedback are required' });
+    }
+    const fb = new RecommendationFeedback({
+      user: userId,
+      book: bookId,
+      feedback, // e.g., 'up' | 'down' or 1/-1 or 1-5
+      comment: comment || ''
+    });
+    await fb.save();
+    res.json({ message: 'Feedback submitted' });
+  } catch (error) {
+    console.error('Feedback error:', error);
+    res.status(500).json({ error: 'Failed to submit feedback' });
   }
 });
 

@@ -97,26 +97,25 @@ const navigate = useNavigate();
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Manage Books</h1>
-            <p className="text-gray-600 mt-2">Add, edit, and manage your book inventory</p>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Manage Books</h1>
+            <p className="text-gray-600 dark:text-gray-300 mt-2">Add, edit, and manage your book inventory</p>
           </div>
           <button
-  onClick={() => navigate('/admin/books/new')}
-  className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors flex items-center"
->
-  <Plus className="h-5 w-5 mr-2" />
-  Add Book
-</button>
-
+            onClick={() => navigate('/admin/books/new')}
+            className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors flex items-center"
+          >
+            <Plus className="h-5 w-5 mr-2" />
+            Add Book
+          </button>
         </div>
 
         {/* Filters */}
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 mb-8">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1">
               <div className="relative">
@@ -126,7 +125,7 @@ const navigate = useNavigate();
                   placeholder="Search books by title, author, or ISBN..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary-500 focus:border-primary-500 text-gray-900 dark:text-white bg-white dark:bg-gray-900 placeholder-gray-400 dark:placeholder-gray-300"
                 />
               </div>
             </div>
@@ -136,7 +135,7 @@ const navigate = useNavigate();
                 <select
                   value={statusFilter}
                   onChange={(e) => setStatusFilter(e.target.value)}
-                  className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-primary-500 focus:border-primary-500"
+                  className="border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
                 >
                   <option value="all">All Books</option>
                   <option value="active">Active</option>
@@ -148,34 +147,34 @@ const navigate = useNavigate();
         </div>
 
         {/* Books Table */}
-        <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+            <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+              <thead className="bg-gray-50 dark:bg-gray-900">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     Book
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     Price
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     Stock
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     Rating
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     Status
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     Actions
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                 {books.map((book) => (
-                  <tr key={book._id} className="hover:bg-gray-50">
+                  <tr key={book._id} className="hover:bg-gray-50 dark:hover:bg-gray-700">
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <img
@@ -184,32 +183,31 @@ const navigate = useNavigate();
                           className="w-12 h-16 object-cover rounded mr-4"
                         />
                         <div>
-                          <div className="text-sm font-medium text-gray-900 line-clamp-2">
+                          <div className="text-sm font-medium text-gray-900 dark:text-white line-clamp-2">
                             {book.title}
                           </div>
-                          <div className="text-sm text-gray-500">{book.author}</div>
-                          <div className="text-xs text-gray-400 capitalize">
+                          <div className="text-sm text-gray-500 dark:text-gray-300">{book.author}</div>
+                          <div className="text-xs text-gray-400 dark:text-gray-500 capitalize">
                             {book.format} • {book.genre.slice(0, 2).join(', ')}
                           </div>
                         </div>
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-gray-900">
+                      <div className="text-sm font-medium text-gray-900 dark:text-white">
                         ${book.price.toFixed(2)}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className={`text-sm font-medium ${
-                        book.inventory.stock < 10 ? 'text-red-600' : 'text-gray-900'
+                        book.inventory.stock < 10 ? 'text-red-600' : 'text-gray-900 dark:text-white'
                       }`}>
                         {/* {book.inventory.stock} */}
                         {book.inventory?.stock > 0 ? (
-  <p className="text-sm text-green-600">In Stock: {book.inventory.stock}</p>
-) : (
-  <p className="text-sm text-red-600">Out of Stock</p>
-)}
-
+                          <p className="text-sm text-green-600">In Stock: {book.inventory.stock}</p>
+                        ) : (
+                          <p className="text-sm text-red-600">Out of Stock</p>
+                        )}
                       </div>
                       {book.inventory.stock < 10 && (
                         <div className="text-xs text-red-500">Low stock</div>
@@ -218,10 +216,10 @@ const navigate = useNavigate();
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <span className="text-yellow-400">★</span>
-                        <span className="text-sm text-gray-900 ml-1">
+                        <span className="text-sm text-gray-900 dark:text-white ml-1">
                           {book.ratings.average.toFixed(1)}
                         </span>
-                        <span className="text-xs text-gray-500 ml-1">
+                        <span className="text-xs text-gray-500 dark:text-gray-300 ml-1">
                           ({book.ratings.count})
                         </span>
                       </div>
@@ -268,9 +266,9 @@ const navigate = useNavigate();
 
           {/* Pagination */}
           {pagination.pages > 1 && (
-            <div className="bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
+            <div className="bg-white dark:bg-gray-800 px-4 py-3 border-t border-gray-200 dark:border-gray-700 sm:px-6">
               <div className="flex items-center justify-between">
-                <div className="text-sm text-gray-700">
+                <div className="text-sm text-gray-700 dark:text-gray-300">
                   Showing {((pagination.current - 1) * 20) + 1} to {Math.min(pagination.current * 20, pagination.total)} of {pagination.total} results
                 </div>
                 <div className="flex space-x-2">
@@ -281,7 +279,7 @@ const navigate = useNavigate();
                       className={`px-3 py-1 rounded ${
                         page === pagination.current
                           ? 'bg-primary-600 text-white'
-                          : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                          : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600'
                       }`}
                     >
                       {page}

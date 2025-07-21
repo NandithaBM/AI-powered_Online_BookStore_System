@@ -144,7 +144,7 @@ const OrderDetail = () => {
   const statusSteps = getStatusSteps(order.status);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
@@ -157,10 +157,10 @@ const OrderDetail = () => {
           </Link>
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
                 Order #{order.orderNumber}
               </h1>
-              <div className="flex items-center space-x-4 mt-2 text-sm text-gray-600">
+              <div className="flex items-center space-x-4 mt-2 text-sm text-gray-600 dark:text-gray-300">
                 <div className="flex items-center">
                   <Calendar className="h-4 w-4 mr-1" />
                   Placed on {new Date(order.createdAt).toLocaleDateString()}
@@ -177,15 +177,15 @@ const OrderDetail = () => {
                 )}
               </div>
             </div>
-            <span className={`px-4 py-2 rounded-full text-sm font-medium capitalize ${getStatusColor(order.status)}`}>
+            <span className={`px-4 py-2 rounded-full text-sm font-medium capitalize ${getStatusColor(order.status)} dark:bg-opacity-80`}>
               {order.status}
             </span>
           </div>
         </div>
 
         {/* Order Status Timeline */}
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-          <h2 className="text-lg font-semibold text-gray-900 mb-6">Order Status</h2>
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 mb-8">
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">Order Status</h2>
           <div className="flex items-center justify-between">
             {statusSteps.map((step, index) => (
               <div key={step.key} className="flex flex-col items-center flex-1">
@@ -236,11 +236,11 @@ const OrderDetail = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Order Items */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">Order Items</h2>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+              <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Order Items</h2>
               <div className="space-y-4">
                 {order.items.map((item, index) => (
-                  <div key={index} className="flex items-center space-x-4 p-4 border border-gray-200 rounded-lg">
+                  <div key={index} className="flex items-center space-x-4 p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
                     <img
                       src={item.book.coverImage}
                       alt={item.book.title}
@@ -249,18 +249,18 @@ const OrderDetail = () => {
                     <div className="flex-1">
                       <Link
                         to={`/books/${item.book._id}`}
-                        className="font-semibold text-gray-900 hover:text-primary-600"
+                        className="font-semibold text-gray-900 dark:text-white hover:text-primary-600"
                       >
                         {item.book.title}
                       </Link>
-                      <p className="text-gray-600">{item.book.author}</p>
-                      <p className="text-sm text-gray-500">Quantity: {item.quantity}</p>
+                      <p className="text-gray-600 dark:text-gray-300">{item.book.author}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">Quantity: {item.quantity}</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-semibold text-gray-900">
+                      <p className="font-semibold text-gray-900 dark:text-white">
                         ₹{(item.price * item.quantity).toFixed(2)}
                       </p>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
                         ₹{item.price.toFixed(2)} each
                       </p>
                     </div>
@@ -273,40 +273,40 @@ const OrderDetail = () => {
           {/* Order Summary & Shipping */}
           <div className="space-y-6">
             {/* Order Summary */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">Order Summary</h2>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+              <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Order Summary</h2>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Subtotal</span>
-                  <span className="text-gray-900">₹{order.subtotal.toFixed(2)}</span>
+                  <span className="text-gray-600 dark:text-gray-300">Subtotal</span>
+                  <span className="text-gray-900 dark:text-white">₹{order.subtotal.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Shipping</span>
-                  <span className="text-gray-900">
+                  <span className="text-gray-600 dark:text-gray-300">Shipping</span>
+                  <span className="text-gray-900 dark:text-white">
                     {order.shipping.cost === 0 ? 'Free' : `$${order.shipping.cost.toFixed(2)}`}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Tax</span>
-                  <span className="text-gray-900">₹{order.tax.toFixed(2)}</span>
+                  <span className="text-gray-600 dark:text-gray-300">Tax</span>
+                  <span className="text-gray-900 dark:text-white">₹{order.tax.toFixed(2)}</span>
                 </div>
-                <div className="border-t border-gray-200 pt-2">
+                <div className="border-t border-gray-200 dark:border-gray-700 pt-2">
                   <div className="flex justify-between font-semibold">
-                    <span className="text-gray-900">Total</span>
-                    <span className="text-gray-900">₹{order.total.toFixed(2)}</span>
+                    <span className="text-gray-900 dark:text-white">Total</span>
+                    <span className="text-gray-900 dark:text-white">₹{order.total.toFixed(2)}</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Shipping Address */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
               <div className="flex items-center space-x-2 mb-4">
                 <MapPin className="h-5 w-5 text-primary-600" />
-                <h2 className="text-lg font-semibold text-gray-900">Shipping Address</h2>
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Shipping Address</h2>
               </div>
-              <div className="text-sm text-gray-600 space-y-1">
-                <p className="font-medium text-gray-900">
+              <div className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                <p className="font-medium text-gray-900 dark:text-white">
                   {order.shippingAddress.firstName} {order.shippingAddress.lastName}
                 </p>
                 <p>{order.shippingAddress.street}</p>
@@ -318,16 +318,16 @@ const OrderDetail = () => {
             </div>
 
             {/* Payment Status */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">Payment</h2>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+              <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Payment</h2>
               <div className="flex items-center justify-between">
-                <span className="text-gray-600">Payment Status</span>
+                <span className="text-gray-600 dark:text-gray-300">Payment Status</span>
                 <span className={`px-3 py-1 rounded-full text-sm font-medium capitalize ${
                   order.paymentStatus === 'paid' 
-                    ? 'bg-green-100 text-green-800'
+                    ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200'
                     : order.paymentStatus === 'failed'
-                    ? 'bg-red-100 text-red-800'
-                    : 'bg-yellow-100 text-yellow-800'
+                    ? 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
+                    : 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200'
                 }`}>
                   {order.paymentStatus}
                 </span>

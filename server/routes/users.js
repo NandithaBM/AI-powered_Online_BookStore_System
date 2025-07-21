@@ -207,4 +207,57 @@ router.post('/change-password', auth, async (req, res) => {
   }
 });
 
+// Get user cart
+router.get('/cart', auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.userId).populate('cart.book', 'title author coverImage price ratings genre format');
+    if (!user) return res.status(404).json({ message: 'User not found' });
+    res.json(user.cart);
+  } catch (error) {
+    console.error('Get cart error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// Replace user cart (sync)
+router.post('/cart', auth, async (req, res) => {
+  try {
+    const { cart } = req.body;
+    const user = await User.findById(req.user.userId);
+    if (!user) return res.status(404).json({ message: 'User not found' });
+    user.cart = cart;
+    await user.save();
+    const updatedUser = await User.findById(req.user.userId).populate('cart.book', 'title author coverImage price ratings genre format');
+    res.json(updatedUser.cart);
+  } catch (error) {
+    console.error('Sync cart error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// Add/update/remove a single cart item
+router.patch('/cart', auth, async (req, res) => {
+  try {
+    const { book, quantity, format } = req.body;
+    const user = await User.findById(req.user.userId);
+    if (!user) return res.status(404).json({ message: 'User not found' });
+    const idx = user.cart.findIndex(item => item.book.toString() === book && item.format === format);
+    if (quantity > 0) {
+      if (idx > -1) {
+        user.cart[idx].quantity = quantity;
+      } else {
+        user.cart.push({ book, quantity, format });
+      }
+    } else if (idx > -1) {
+      user.cart.splice(idx, 1);
+    }
+    await user.save();
+    const updatedUser = await User.findById(req.user.userId).populate('cart.book', 'title author coverImage price ratings genre format');
+    res.json(updatedUser.cart);
+  } catch (error) {
+    console.error('Update cart error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 module.exports = router;

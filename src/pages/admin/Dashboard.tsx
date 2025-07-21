@@ -150,22 +150,22 @@ const AdminDashboard = () => {
 
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
-          <p className="text-gray-600 mt-2">Welcome back! Here's what's happening with your bookstore.</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Admin Dashboard</h1>
+          <p className="text-gray-600 dark:text-gray-300 mt-2">Welcome back! Here's what's happening with your bookstore.</p>
         </div>
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {statCards.map((card, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-sm p-6">
+            <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">{card.title}</p>
-                  <p className="text-2xl font-bold text-gray-900">{card.value}</p>
-                  <p className="text-sm text-green-600 mt-1">
+                  <p className="text-sm font-medium text-gray-600 dark:text-gray-300">{card.title}</p>
+                  <p className="text-2xl font-bold text-gray-900 dark:text-white">{card.value}</p>
+                  <p className="text-sm text-green-600 dark:text-green-400 mt-1">
                     <TrendingUp className="h-4 w-4 inline mr-1" />
                     {card.change} from last month
                   </p>
@@ -181,8 +181,8 @@ const AdminDashboard = () => {
         {/* Charts */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Revenue Chart */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Monthly Revenue</h3>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Monthly Revenue</h3>
             <ResponsiveContainer width="100%" height={300}>
               <LineChart data={chartData}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -195,8 +195,8 @@ const AdminDashboard = () => {
           </div>
 
           {/* Orders Chart */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Monthly Orders</h3>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Monthly Orders</h3>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={chartData}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -212,56 +212,56 @@ const AdminDashboard = () => {
         {/* Quick Actions & Alerts */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Quick Actions */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Quick Actions</h3>
             <div className="space-y-3">
              <button
-  className="w-full text-left p-3 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors"
+  className="w-full text-left p-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
   onClick={() => navigate('/admin/books/new')}>
                 <div className="flex items-center">
                   <BookOpen className="h-5 w-5 text-primary-600 mr-3" />
-                  <span className="font-medium">Add New Book</span>
+                  <span className="font-medium text-gray-900 dark:text-white">Add New Book</span>
                 </div>
               </button>
               <button
-  className="w-full text-left p-3 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors"
+  className="w-full text-left p-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
   onClick={() => navigate('/admin/books')}
 >
                 <div className="flex items-center">
                   <Package className="h-5 w-5 text-primary-600 mr-3" />
-                  <span className="font-medium">Manage Inventory</span>
+                  <span className="font-medium text-gray-900 dark:text-white">Manage Inventory</span>
                 </div>
               </button>
               <button
-  className="w-full text-left p-3 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors"
+  className="w-full text-left p-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
   onClick={() => navigate('/admin/orders')}
 >
                 <div className="flex items-center">
                   <ShoppingCart className="h-5 w-5 text-primary-600 mr-3" />
-                  <span className="font-medium">Process Orders</span>
+                  <span className="font-medium text-gray-900 dark:text-white">Process Orders</span>
                 </div>
               </button>
-              <button className="w-full text-left p-3 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors"
+              <button className="w-full text-left p-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                onClick={() => navigate('/admin/analytics')}>
                 <div className="flex items-center">
                 <TrendingUp className="h-5 w-5 text-primary-600 mr-3" />
-                <span className="font-medium">Go to Analytics</span>
+                <span className="font-medium text-gray-900 dark:text-white">Go to Analytics</span>
                 </div>
               </button>
             </div>
           </div>
 
           {/* Alerts & Notifications */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Alerts & Notifications</h3>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Alerts & Notifications</h3>
             <div className="space-y-3">
               {stats.pendingOrders > 0 && (
-                <div className="p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <div className="p-3 bg-yellow-50 dark:bg-yellow-900 border border-yellow-200 dark:border-yellow-700 rounded-lg">
                   <div className="flex items-center">
                     <AlertCircle className="h-5 w-5 text-yellow-600 mr-3" />
                     <div>
-                      <p className="font-medium text-yellow-800">Pending Orders</p>
-                      <p className="text-sm text-yellow-700">
+                      <p className="font-medium text-yellow-800 dark:text-yellow-200">Pending Orders</p>
+                      <p className="text-sm text-yellow-700 dark:text-yellow-300">
                         {stats.pendingOrders} orders need attention
                       </p>
                     </div>
@@ -269,24 +269,24 @@ const AdminDashboard = () => {
                 </div>
               )}
               
-              <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
+              <div className="p-3 bg-blue-50 dark:bg-blue-900 border border-blue-200 dark:border-blue-700 rounded-lg">
                 <div className="flex items-center">
                   <Calendar className="h-5 w-5 text-blue-600 mr-3" />
                   <div>
-                    <p className="font-medium text-blue-800">System Update</p>
-                    <p className="text-sm text-blue-700">
+                    <p className="font-medium text-blue-800 dark:text-blue-200">System Update</p>
+                    <p className="text-sm text-blue-700 dark:text-blue-300">
                       Scheduled maintenance tonight at 2 AM
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
+              <div className="p-3 bg-green-50 dark:bg-green-900 border border-green-200 dark:border-green-700 rounded-lg">
                 <div className="flex items-center">
                   <TrendingUp className="h-5 w-5 text-green-600 mr-3" />
                   <div>
-                    <p className="font-medium text-green-800">Sales Milestone</p>
-                    <p className="text-sm text-green-700">
+                    <p className="font-medium text-green-800 dark:text-green-200">Sales Milestone</p>
+                    <p className="text-sm text-green-700 dark:text-green-300">
                       Congratulations! You've reached ₹10K in sales this month
                     </p>
                   </div>

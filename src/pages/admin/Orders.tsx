@@ -122,23 +122,23 @@ const AdminOrders = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Manage Orders</h1>
-          <p className="text-gray-600 mt-2">Track and manage customer orders</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Manage Orders</h1>
+          <p className="text-gray-600 dark:text-gray-300 mt-2">Track and manage customer orders</p>
         </div>
 
         {/* Filters */}
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 mb-8">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
               <Filter className="h-5 w-5 text-gray-400" />
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-primary-500 focus:border-primary-500"
+                className="border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
               >
                 <option value="">All Orders</option>
                 <option value="pending">Pending</option>
@@ -153,59 +153,59 @@ const AdminOrders = () => {
         </div>
 
         {/* Orders Table */}
-        <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+            <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+              <thead className="bg-gray-50 dark:bg-gray-900">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     Order
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     Customer
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     Items
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     Total
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     Status
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     Date
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     Actions
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                 {orders.map((order) => {
                   const StatusIcon = getStatusIcon(order.status);
                   return (
-                    <tr key={order._id} className="hover:bg-gray-50">
+                    <tr key={order._id} className="hover:bg-gray-50 dark:hover:bg-gray-700">
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-medium text-gray-900">
+                        <div className="text-sm font-medium text-gray-900 dark:text-white">
                           #{order.orderNumber}
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div>
-                          <div className="text-sm font-medium text-gray-900">
+                          <div className="text-sm font-medium text-gray-900 dark:text-white">
                             {order.user?.name || 'Unknown User'}
                           </div>
-                          <div className="text-sm text-gray-500">
+                          <div className="text-sm text-gray-500 dark:text-gray-300">
                             {order.user?.email || 'No email'}
                           </div>
                         </div>
                       </td>
                       <td className="px-6 py-4">
-                        <div className="text-sm text-gray-900">
+                        <div className="text-sm text-gray-900 dark:text-white">
                           {order.items.length} item{order.items.length !== 1 ? 's' : ''}
                         </div>
-                        <div className="text-xs text-gray-500">
+                        <div className="text-xs text-gray-500 dark:text-gray-300">
                           {order.items.slice(0, 2).map((item, index) => (
                             <div key={index}>
                               {(item.book && item.book.title) ? `${item.book.title} (x${item.quantity})` : `Unknown Book (x${item.quantity})`}
@@ -217,7 +217,7 @@ const AdminOrders = () => {
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-medium text-gray-900">
+                        <div className="text-sm font-medium text-gray-900 dark:text-white">
                           ₹{order.total.toFixed(2)}
                         </div>
                       </td>
@@ -234,7 +234,7 @@ const AdminOrders = () => {
                           {order.status}
                         </button>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
                         {new Date(order.createdAt).toLocaleDateString()}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
@@ -254,9 +254,9 @@ const AdminOrders = () => {
 
           {/* Pagination */}
           {pagination.pages > 1 && (
-            <div className="bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
+            <div className="bg-white dark:bg-gray-800 px-4 py-3 border-t border-gray-200 dark:border-gray-700 sm:px-6">
               <div className="flex items-center justify-between">
-                <div className="text-sm text-gray-700">
+                <div className="text-sm text-gray-700 dark:text-gray-300">
                   Showing {((pagination.current - 1) * 20) + 1} to {Math.min(pagination.current * 20, pagination.total)} of {pagination.total} results
                 </div>
                 <div className="flex space-x-2">
@@ -267,7 +267,7 @@ const AdminOrders = () => {
                       className={`px-3 py-1 rounded ${
                         page === pagination.current
                           ? 'bg-primary-600 text-white'
-                          : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                          : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600'
                       }`}
                     >
                       {page}
@@ -288,22 +288,22 @@ const AdminOrders = () => {
         {/* Status Update Modal */}
         {showStatusModal && selectedOrder && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white rounded-lg p-6 w-full max-w-md">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 w-full max-w-md">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                 Update Order Status
               </h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
                 Order #{selectedOrder.orderNumber}
               </p>
               
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Status
                 </label>
                 <select
                   value={newStatus}
                   onChange={(e) => setNewStatus(e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-primary-500 focus:border-primary-500"
+                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
                 >
                   <option value="pending">Pending</option>
                   <option value="confirmed">Confirmed</option>
@@ -327,7 +327,7 @@ const AdminOrders = () => {
                     setSelectedOrder(null);
                     setNewStatus('');
                   }}
-                  className="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-400 transition-colors"
+                  className="flex-1 bg-gray-300 text-gray-700 dark:bg-gray-700 dark:text-white py-2 px-4 rounded-lg hover:bg-gray-400 dark:hover:bg-gray-600 transition-colors"
                 >
                   Cancel
                 </button>

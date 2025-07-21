@@ -31,6 +31,7 @@ import toast from 'react-hot-toast';
 import { useWishlist } from '../contexts/WishlistContext';
 import Reviews from '../components/Reviews';
 import { getRecommendations } from '../api/recommend';
+import RecommendationCard from '../components/RecommendationCard';
 
 interface Book {
   _id: string;
@@ -212,7 +213,7 @@ const BookDetail = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Book not found</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Book not found</h2>
           <Link to="/books" className="text-primary-600 hover:text-primary-700">
             Browse all books
           </Link>
@@ -224,7 +225,7 @@ const BookDetail = () => {
   const images = [book.coverImage, ...(book.images || [])].filter(Boolean);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="mb-8">
@@ -268,7 +269,7 @@ const BookDetail = () => {
           {/* Book Info */}
           <div>
             <div className="mb-4">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">{book.title}</h1>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{book.title}</h1>
               <p className="text-xl text-gray-600 mb-4">by {book.author}</p>
               
               <div className="flex items-center mb-4">
@@ -330,8 +331,8 @@ const BookDetail = () => {
             </div>
 
             {/* Book Details */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Book Details</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Book Details</h3>
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div className="flex items-center">
                   <BookOpen className="h-4 w-4 text-gray-400 mr-2" />
@@ -387,15 +388,15 @@ const BookDetail = () => {
         </div>
 
         {/* Description */}
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Description</h2>
-          <p className="text-gray-700 leading-relaxed">{book.description}</p>
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 mb-12">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Description</h2>
+          <p className="text-gray-700 dark:text-white leading-relaxed">{book.description}</p>
         </div>
 
         {/* Related Books Section */}
         {relatedBooks.length > 0 && (
-          <div className="bg-white rounded-lg shadow-sm p-6 mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Related Books</h2>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Related Books</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {relatedBooks.map((related) => (
                 <div key={related._id} className="flex flex-col items-center">
@@ -413,7 +414,7 @@ const BookDetail = () => {
 
         {/* Recommendations Section (if any) */}
         {recommendations.length > 0 && (
-          <div className="bg-white rounded-lg shadow-sm p-6 mb-12">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Recommended for You</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {recommendations.map((rec, idx) => (
@@ -429,11 +430,11 @@ const BookDetail = () => {
         )}
 
         {/* Reviews */}
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-12">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 mb-12">
           {/* Sentiment Analytics */}
           {sentiment && (
             <div className="mb-8">
-              <h3 className="text-lg font-semibold mb-2">Review Sentiment Summary</h3>
+              <h3 className="text-lg font-semibold dark:text-white mb-2">Review Sentiment Summary</h3>
               {/* Sentiment Bar Chart */}
               <div className="w-full max-w-md mb-4">
                 <ResponsiveContainer width="100%" height={40}>
@@ -485,7 +486,7 @@ const BookDetail = () => {
             </div>
           )}
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">Reviews</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Reviews</h2>
             {user && (
               <button
                 onClick={() => setShowReviewForm(!showReviewForm)}
@@ -545,7 +546,7 @@ const BookDetail = () => {
           {/* Review Form */}
           {showReviewForm && (
             <form onSubmit={handleSubmitReview} className="bg-gray-50 rounded-lg p-6 mb-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Write Your Review</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Write Your Review</h3>
               
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -639,7 +640,7 @@ const BookDetail = () => {
         {/* Similar Books */}
         {book.similarBooks && book.similarBooks.length > 0 && (
           <div className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Similar Books</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Similar Books</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {book.similarBooks.slice(0, 4).map((similarBook) => (
                 <BookCard key={similarBook._id} book={similarBook} />
@@ -658,14 +659,19 @@ const BookDetail = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {recommendations.map((rec) => (
                 <div key={rec.id} className="bg-white rounded-lg shadow p-4">
-                  <Link to={`/books/${rec.id}`}>
-                    <img src={rec.coverImage} alt={rec.title} className="w-full h-48 object-cover rounded" />
-                    <h3 className="mt-2 font-semibold">{rec.title}</h3>
-                    <p className="text-gray-600">{rec.author}</p>
-                  </Link>
-                  <div className="mt-2 text-sm text-blue-700">
-                    <b>Why recommended:</b> {rec.explanation}
-                  </div>
+                  <RecommendationCard
+                    recommendation={rec.book ? rec : {
+                      book: {
+                        ...rec,
+                        description: rec.description || '', // Use the real description
+                      },
+                      score: rec.score || 0,
+                      explanation: rec.explanation || '',
+                      reasons: rec.reasons || {},
+                      dataPoints: rec.dataPoints || [],
+                    }}
+                    onAddToWishlist={handleAddToWishlist}
+                  />
                 </div>
               ))}
             </div>

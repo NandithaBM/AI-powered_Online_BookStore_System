@@ -77,7 +77,7 @@ const Reviews: React.FC<ReviewsProps> = ({ bookId }) => {
 
   return (
     <div className="mt-8">
-      <h2 className="text-2xl font-bold text-gray-900 mb-4">Reviews</h2>
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Reviews</h2>
       {loading ? (
         <div className="flex items-center justify-center py-8">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
@@ -87,11 +87,11 @@ const Reviews: React.FC<ReviewsProps> = ({ bookId }) => {
       ) : (
         <>
           {reviews.length === 0 ? (
-            <p className="text-gray-600 mb-4">No reviews yet. Be the first to review this book!</p>
+            <p className="text-gray-600 dark:text-white mb-4">No reviews yet. Be the first to review this book!</p>
           ) : (
             <div className="space-y-6 mb-8">
               {reviews.map((review) => (
-                <div key={review._id} className="bg-white rounded-lg shadow-sm p-4">
+                <div key={review._id} className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg shadow-sm p-4">
                   <div className="flex items-center mb-2">
                     {review.user.profile?.avatar ? (
                       <img src={review.user.profile.avatar} alt={review.user.name} className="w-8 h-8 rounded-full mr-2" />
@@ -115,10 +115,10 @@ const Reviews: React.FC<ReviewsProps> = ({ bookId }) => {
           )}
 
           {user && !hasReviewed && (
-            <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Write a Review</h3>
+            <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg shadow-sm p-6">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Write a Review</h3>
               <div className="flex items-center mb-4">
-                <span className="mr-2 text-gray-700">Your Rating:</span>
+                <span className="mr-2 text-gray-700 dark:text-white">Your Rating:</span>
                 {[1,2,3,4,5].map(star => (
                   <button
                     type="button"
@@ -131,7 +131,7 @@ const Reviews: React.FC<ReviewsProps> = ({ bookId }) => {
                 ))}
               </div>
               <textarea
-                className="w-full border border-gray-300 rounded-lg p-2 mb-4"
+                className="w-full border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-lg p-2 mb-4"
                 rows={3}
                 placeholder="Write your review here..."
                 value={reviewText}

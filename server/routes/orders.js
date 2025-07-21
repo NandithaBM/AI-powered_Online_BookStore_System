@@ -60,7 +60,7 @@ router.post('/', auth, async (req, res) => {
       paymentMethod,
       shippingAddress,
       billingAddress,
-      paymentStatus: 'paid',
+      paymentStatus: req.body.paymentStatus || 'paid',
     });
 
     await order.save();

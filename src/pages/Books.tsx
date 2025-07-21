@@ -134,15 +134,13 @@ const Books = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Browse Books</h1>
-            <p className="text-gray-600">
-              {pagination.total} books found
-            </p>
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">Browse Books</h1>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">{pagination.total} books found</p>
           </div>
 
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
@@ -165,7 +163,7 @@ const Books = () => {
             {/* Filter Toggle */}
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center space-x-2 bg-white px-4 py-2 rounded-lg border hover:bg-gray-50"
+              className="flex items-center space-x-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white px-4 py-2 rounded-lg border hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
             >
               <SlidersHorizontal className="h-5 w-5" />
               <span>Filters</span>
@@ -175,157 +173,155 @@ const Books = () => {
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Filters Sidebar */}
-          <div className={`lg:w-64 ${showFilters ? 'block' : 'hidden lg:block'}`}>
-            <div className="bg-white rounded-lg shadow-sm border p-6 sticky top-24">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-gray-900">Filters</h3>
-                <button
-                  onClick={clearFilters}
-                  className="text-sm text-primary-600 hover:text-primary-700"
-                >
-                  Clear All
-                </button>
+          <div className={`lg:w-64 ${showFilters ? 'block' : 'hidden lg:block'} bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg shadow-sm border p-6 sticky top-24`}>
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Filters</h3>
+              <button
+                onClick={clearFilters}
+                className="text-sm text-primary-600 hover:text-primary-700"
+              >
+                Clear All
+              </button>
+            </div>
+
+            <div className="space-y-6">
+              {/* Search */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Search
+                </label>
+                <input
+                  type="text"
+                  value={filters.search}
+                  onChange={(e) => handleFilterChange('search', e.target.value)}
+                  placeholder="Search books..."
+                  className="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-md focus:ring-primary-500 focus:border-primary-500 text-gray-900 dark:text-white bg-white dark:bg-gray-900"
+                />
               </div>
 
-              <div className="space-y-6">
-                {/* Search */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Search
-                  </label>
+              {/* Genre */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Genre
+                </label>
+                <div className="space-y-2 max-h-40 overflow-y-auto">
+                  {genres.map((genre) => (
+                    <label key={genre} className="flex items-center">
+                      <input
+                        type="checkbox"
+                        checked={filters.genre.includes(genre)}
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            handleFilterChange('genre', [...filters.genre, genre]);
+                          } else {
+                            handleFilterChange('genre', filters.genre.filter(g => g !== genre));
+                          }
+                        }}
+                        className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-900"
+                      />
+                      <span className="ml-2 text-sm text-gray-700 dark:text-gray-300">{genre}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              {/* Price Range */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Price Range
+                </label>
+                <div className="flex space-x-2">
                   <input
-                    type="text"
-                    value={filters.search}
-                    onChange={(e) => handleFilterChange('search', e.target.value)}
-                    placeholder="Search books..."
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
+                    type="number"
+                    value={filters.minPrice}
+                    onChange={(e) => handleFilterChange('minPrice', e.target.value)}
+                    placeholder="Min"
+                    className="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-md focus:ring-primary-500 focus:border-primary-500 text-gray-900 dark:text-white bg-white dark:bg-gray-900"
+                  />
+                  <input
+                    type="number"
+                    value={filters.maxPrice}
+                    onChange={(e) => handleFilterChange('maxPrice', e.target.value)}
+                    placeholder="Max"
+                    className="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-md focus:ring-primary-500 focus:border-primary-500 text-gray-900 dark:text-white bg-white dark:bg-gray-900"
                   />
                 </div>
-
-                {/* Genre */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Genre
-                  </label>
-                  <div className="space-y-2 max-h-40 overflow-y-auto">
-                    {genres.map((genre) => (
-                      <label key={genre} className="flex items-center">
-                        <input
-                          type="checkbox"
-                          checked={filters.genre.includes(genre)}
-                          onChange={(e) => {
-                            if (e.target.checked) {
-                              handleFilterChange('genre', [...filters.genre, genre]);
-                            } else {
-                              handleFilterChange('genre', filters.genre.filter(g => g !== genre));
-                            }
-                          }}
-                          className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
-                        />
-                        <span className="ml-2 text-sm text-gray-700">{genre}</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Price Range */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Price Range
-                  </label>
-                  <div className="flex space-x-2">
-                    <input
-                      type="number"
-                      value={filters.minPrice}
-                      onChange={(e) => handleFilterChange('minPrice', e.target.value)}
-                      placeholder="Min"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
-                    />
-                    <input
-                      type="number"
-                      value={filters.maxPrice}
-                      onChange={(e) => handleFilterChange('maxPrice', e.target.value)}
-                      placeholder="Max"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
-                    />
-                  </div>
-                </div>
-
-                {/* Rating */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Minimum Rating
-                  </label>
-                  <select
-                    value={filters.minRating}
-                    onChange={(e) => handleFilterChange('minRating', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
-                  >
-                    <option value="">Any Rating</option>
-                    <option value="4">4+ Stars</option>
-                    <option value="3">3+ Stars</option>
-                    <option value="2">2+ Stars</option>
-                    <option value="1">1+ Stars</option>
-                  </select>
-                </div>
-
-                {/* Format */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Format
-                  </label>
-                  <div className="space-y-2">
-                    {formats.map((format) => (
-                      <label key={format} className="flex items-center">
-                        <input
-                          type="checkbox"
-                          checked={filters.format.includes(format)}
-                          onChange={(e) => {
-                            if (e.target.checked) {
-                              handleFilterChange('format', [...filters.format, format]);
-                            } else {
-                              handleFilterChange('format', filters.format.filter(f => f !== format));
-                            }
-                          }}
-                          className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
-                        />
-                        <span className="ml-2 text-sm text-gray-700 capitalize">{format}</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Sort */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Sort By
-                  </label>
-                  <select
-                    value={`${filters.sortBy}-${filters.sortOrder}`}
-                    onChange={(e) => {
-                      const [sortBy, sortOrder] = e.target.value.split('-');
-                      handleFilterChange('sortBy', sortBy);
-                      handleFilterChange('sortOrder', sortOrder);
-                    }}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
-                  >
-                    <option value="createdAt-desc">Newest First</option>
-                    <option value="createdAt-asc">Oldest First</option>
-                    <option value="price-asc">Price: Low to High</option>
-                    <option value="price-desc">Price: High to Low</option>
-                    <option value="ratings.average-desc">Highest Rated</option>
-                    <option value="title-asc">Title: A to Z</option>
-                    <option value="title-desc">Title: Z to A</option>
-                  </select>
-                </div>
-
-                <button
-                  onClick={applyFilters}
-                  className="w-full bg-primary-600 text-white py-2 px-4 rounded-md hover:bg-primary-700 transition-colors"
-                >
-                  Apply Filters
-                </button>
               </div>
+
+              {/* Rating */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Minimum Rating
+                </label>
+                <select
+                  value={filters.minRating}
+                  onChange={(e) => handleFilterChange('minRating', e.target.value)}
+                  className="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-md focus:ring-primary-500 focus:border-primary-500 text-gray-900 dark:text-white bg-white dark:bg-gray-900"
+                >
+                  <option value="">Any Rating</option>
+                  <option value="4">4+ Stars</option>
+                  <option value="3">3+ Stars</option>
+                  <option value="2">2+ Stars</option>
+                  <option value="1">1+ Stars</option>
+                </select>
+              </div>
+
+              {/* Format */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Format
+                </label>
+                <div className="space-y-2">
+                  {formats.map((format) => (
+                    <label key={format} className="flex items-center">
+                      <input
+                        type="checkbox"
+                        checked={filters.format.includes(format)}
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            handleFilterChange('format', [...filters.format, format]);
+                          } else {
+                            handleFilterChange('format', filters.format.filter(f => f !== format));
+                          }
+                        }}
+                        className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-900"
+                      />
+                      <span className="ml-2 text-sm text-gray-700 dark:text-gray-300 capitalize">{format}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              {/* Sort */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Sort By
+                </label>
+                <select
+                  value={`${filters.sortBy}-${filters.sortOrder}`}
+                  onChange={(e) => {
+                    const [sortBy, sortOrder] = e.target.value.split('-');
+                    handleFilterChange('sortBy', sortBy);
+                    handleFilterChange('sortOrder', sortOrder);
+                  }}
+                  className="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-md focus:ring-primary-500 focus:border-primary-500 text-gray-900 dark:text-white bg-white dark:bg-gray-900"
+                >
+                  <option value="createdAt-desc">Newest First</option>
+                  <option value="createdAt-asc">Oldest First</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="ratings.average-desc">Highest Rated</option>
+                  <option value="title-asc">Title: A to Z</option>
+                  <option value="title-desc">Title: Z to A</option>
+                </select>
+              </div>
+
+              <button
+                onClick={applyFilters}
+                className="w-full bg-primary-600 text-white py-2 px-4 rounded-md hover:bg-primary-700 transition-colors"
+              >
+                Apply Filters
+              </button>
             </div>
           </div>
 
@@ -353,7 +349,9 @@ const Books = () => {
                     : 'grid-cols-1'
                 }`}>
                   {books.map((book) => (
-                    <BookCard key={book._id} book={book} />
+                    <div key={book._id} className={`bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg shadow p-4 ${viewMode === 'list' ? 'col-span-1 w-full' : ''}`}>
+                      <BookCard book={book} viewMode={viewMode} />
+                    </div>
                   ))}
                 </div>
 

@@ -53,15 +53,15 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
           <BookOpen className="h-12 w-12 text-primary-600" />
         </div>
-        <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">
+        <h2 className="mt-6 text-center text-3xl font-bold text-gray-900 dark:text-white">
           Welcome back
         </h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
+        <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-300">
           Don't have an account?{' '}
           <Link
             to="/register"
@@ -73,7 +73,7 @@ const Login = () => {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <div className="bg-white dark:bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10">
           {redirect === '/checkout' && (
             <div className="mb-4 p-3 bg-yellow-100 text-yellow-800 rounded text-center font-semibold">
               Please log in to continue checkout
@@ -83,7 +83,7 @@ const Login = () => {
             <div>
               <label
                 htmlFor="identifier"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300"
               >
                 Email or Mobile
               </label>
@@ -96,7 +96,7 @@ const Login = () => {
                   required
                   value={identifier}
                   onChange={(e) => setIdentifier(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white bg-white dark:bg-gray-900 placeholder-gray-400 dark:placeholder-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   placeholder="Enter your email or mobile number"
                 />
               </div>
@@ -105,7 +105,7 @@ const Login = () => {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300"
               >
                 Password
               </label>
@@ -118,7 +118,7 @@ const Login = () => {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 pr-10 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white bg-white dark:bg-gray-900 placeholder-gray-400 dark:placeholder-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   placeholder="Enter your password"
                 />
                 <button
@@ -145,7 +145,7 @@ const Login = () => {
                   type="checkbox"
                   className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                 />
-                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900 dark:text-white">
                   Remember me
                 </label>
               </div>

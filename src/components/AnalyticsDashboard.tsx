@@ -216,21 +216,21 @@ const AnalyticsDashboard: React.FC = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
-        <h1 className="text-3xl font-bold text-gray-800">Analytics Dashboard</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Analytics Dashboard</h1>
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
             <input
               type="date"
               value={dateRange.startDate}
               onChange={(e) => setDateRange(prev => ({ ...prev, startDate: e.target.value }))}
-              className="p-2 border border-gray-300 rounded-lg"
+              className="p-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
             />
-            <span className="text-gray-500">to</span>
+            <span className="text-gray-500 dark:text-gray-300">to</span>
             <input
               type="date"
               value={dateRange.endDate}
               onChange={(e) => setDateRange(prev => ({ ...prev, endDate: e.target.value }))}
-              className="p-2 border border-gray-300 rounded-lg"
+              className="p-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
             />
           </div>
           <button
@@ -245,11 +245,11 @@ const AnalyticsDashboard: React.FC = () => {
 
       {/* Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-600">Total Revenue</p>
-              <p className="text-2xl font-bold text-gray-900">
+              <p className="text-sm font-medium text-gray-600 dark:text-gray-300">Total Revenue</p>
+              <p className="text-2xl font-bold text-gray-900 dark:text-white">
                 ${data.sales.summary.totalRevenue.toLocaleString()}
               </p>
             </div>
@@ -259,11 +259,11 @@ const AnalyticsDashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-600">Total Orders</p>
-              <p className="text-2xl font-bold text-gray-900">
+              <p className="text-sm font-medium text-gray-600 dark:text-gray-300">Total Orders</p>
+              <p className="text-2xl font-bold text-gray-900 dark:text-white">
                 {data.sales.summary.totalOrders.toLocaleString()}
               </p>
             </div>
@@ -273,14 +273,14 @@ const AnalyticsDashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-600">Active Users</p>
-              <p className="text-2xl font-bold text-gray-900">
+              <p className="text-sm font-medium text-gray-600 dark:text-gray-300">Active Users</p>
+              <p className="text-2xl font-bold text-gray-900 dark:text-white">
                 {data.users.activeUsers.toLocaleString()}
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-500 dark:text-gray-400">
                 {data.users.retentionRate}% retention
               </p>
             </div>
@@ -290,14 +290,14 @@ const AnalyticsDashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-600">Stock Alerts</p>
-              <p className="text-2xl font-bold text-gray-900">
+              <p className="text-sm font-medium text-gray-600 dark:text-gray-300">Stock Alerts</p>
+              <p className="text-2xl font-bold text-gray-900 dark:text-white">
                 {data.inventory.totalAlerts}
               </p>
-              <p className="text-sm text-red-500">
+              <p className="text-sm text-red-500 dark:text-red-400">
                 {data.inventory.outOfStock.length} out of stock
               </p>
             </div>
@@ -311,8 +311,8 @@ const AnalyticsDashboard: React.FC = () => {
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Sales Trend */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Sales Trend</h3>
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Sales Trend</h3>
           <ResponsiveContainer width="100%" height={300}>
             <AreaChart data={salesChartData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -334,8 +334,8 @@ const AnalyticsDashboard: React.FC = () => {
         </div>
 
         {/* Genre Performance */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Genre Performance</h3>
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Genre Performance</h3>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
@@ -357,8 +357,8 @@ const AnalyticsDashboard: React.FC = () => {
         </div>
 
         {/* User Growth */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">User Growth</h3>
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">User Growth</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={userGrowthData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -378,25 +378,25 @@ const AnalyticsDashboard: React.FC = () => {
         </div>
 
         {/* Top Books */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Top Selling Books</h3>
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Top Selling Books</h3>
           <div className="space-y-3 max-h-80 overflow-y-auto">
             {data.sales.topBooks.slice(0, 10).map((book, index) => (
-              <div key={book._id} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+              <div key={book._id} className="flex items-center space-x-3 p-3 bg-gray-50 dark:bg-gray-900 rounded-lg">
                 <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                   <span className="text-sm font-semibold text-blue-600">#{index + 1}</span>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate">
+                  <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
                     {book.bookDetails[0]?.title || 'Unknown Title'}
                   </p>
-                  <p className="text-xs text-gray-500 truncate">
+                  <p className="text-xs text-gray-500 dark:text-gray-300 truncate">
                     {book.bookDetails[0]?.author || 'Unknown Author'}
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm font-semibold text-gray-900">{book.totalSold} sold</p>
-                  <p className="text-xs text-gray-500">${book.revenue}</p>
+                  <p className="text-sm font-semibold text-gray-900 dark:text-white">{book.totalSold} sold</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-300">${book.revenue}</p>
                 </div>
               </div>
             ))}
@@ -404,8 +404,8 @@ const AnalyticsDashboard: React.FC = () => {
         </div>
 
         {/* Sentiment Analytics for Top Books */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Sentiment Analytics (Top 5 Books)</h3>
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Sentiment Analytics (Top 5 Books)</h3>
           {sentimentLoading ? (
             <div className="flex items-center justify-center h-32">
               <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600"></div>
@@ -426,11 +426,11 @@ const AnalyticsDashboard: React.FC = () => {
               <div className="flex flex-wrap gap-4 mt-4">
                 {sentimentData.map((book, idx) => (
                   <div key={idx} className="flex flex-col items-center">
-                    <span className="font-medium text-gray-800 text-sm mb-1">{book.title}</span>
+                    <span className="font-medium text-gray-800 dark:text-white text-sm mb-1">{book.title}</span>
                     {typeof book.averageScore === 'number' ? (
-                      <span className="px-2 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-semibold">Avg. Score: {book.averageScore.toFixed(2)}</span>
+                      <span className="px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold">Avg. Score: {book.averageScore.toFixed(2)}</span>
                     ) : (
-                      <span className="px-2 py-1 rounded-full bg-gray-100 text-gray-600 text-xs">No score</span>
+                      <span className="px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs">No score</span>
                     )}
                   </div>
                 ))}
@@ -442,8 +442,8 @@ const AnalyticsDashboard: React.FC = () => {
 
       {/* Stock Alerts */}
       {data.inventory.totalAlerts > 0 && (
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 flex items-center">
             <AlertTriangle className="w-5 h-5 text-red-600 mr-2" />
             Stock Alerts
           </h3>
@@ -454,9 +454,9 @@ const AnalyticsDashboard: React.FC = () => {
                 <h4 className="font-medium text-red-600 mb-3">Out of Stock ({data.inventory.outOfStock.length})</h4>
                 <div className="space-y-2 max-h-40 overflow-y-auto">
                   {data.inventory.outOfStock.map(book => (
-                    <div key={book._id} className="p-3 bg-red-50 rounded-lg">
-                      <p className="font-medium text-gray-900">{book.title}</p>
-                      <p className="text-sm text-gray-600">{book.author}</p>
+                    <div key={book._id} className="p-3 bg-red-50 dark:bg-red-900 rounded-lg">
+                      <p className="font-medium text-gray-900 dark:text-white">{book.title}</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">{book.author}</p>
                     </div>
                   ))}
                 </div>
@@ -469,11 +469,11 @@ const AnalyticsDashboard: React.FC = () => {
                 <h4 className="font-medium text-yellow-600 mb-3">Low Stock ({data.inventory.lowStock.length})</h4>
                 <div className="space-y-2 max-h-40 overflow-y-auto">
                   {data.inventory.lowStock.map(book => (
-                    <div key={book._id} className="p-3 bg-yellow-50 rounded-lg">
+                    <div key={book._id} className="p-3 bg-yellow-50 dark:bg-yellow-900 rounded-lg">
                       <div className="flex justify-between items-start">
                         <div>
-                          <p className="font-medium text-gray-900">{book.title}</p>
-                          <p className="text-sm text-gray-600">{book.author}</p>
+                          <p className="font-medium text-gray-900 dark:text-white">{book.title}</p>
+                          <p className="text-sm text-gray-600 dark:text-gray-300">{book.author}</p>
                         </div>
                         <span className="text-sm font-semibold text-yellow-600">
                           {book.stock} left

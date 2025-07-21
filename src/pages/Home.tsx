@@ -14,6 +14,7 @@ import toast from 'react-hot-toast';
 import { useAuth } from '../contexts/AuthContext';
 import { fetchBestsellers } from '../api/bestsellers';
 import { fetchPersonalizedRecommendations } from '../api/personalizedRecommendations';
+import RecommendationCard from '../components/RecommendationCard';
 
 interface Book {
   _id?: string;
@@ -31,6 +32,7 @@ interface Book {
   genre: string[];
   format?: string;
   explanation?: string;
+  description?: string; // Added description field
 }
 
 const Home = () => {
@@ -99,11 +101,11 @@ const Home = () => {
         <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold font-serif mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold font-serif mb-6 text-gray-900 dark:text-white">
               Discover Your Next
               <span className="block text-accent-400">Literary Adventure</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-primary-100 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl mb-8 text-primary-100 max-w-3xl mx-auto text-gray-900 dark:text-white">
               AI-powered recommendations, semantic search, and personalized book discovery
               await you in our vast digital library.
             </p>
@@ -127,7 +129,7 @@ const Home = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -135,8 +137,8 @@ const Home = () => {
                 <div className="flex justify-center mb-4">
                   <stat.icon className="h-12 w-12 text-primary-600" />
                 </div>
-                <p className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</p>
-                <p className="text-gray-600">{stat.label}</p>
+                <p className="text-3xl font-bold text-gray-900 mb-2 text-gray-900 dark:text-white">{stat.value}</p>
+                <p className="text-gray-600 text-gray-600 dark:text-gray-400">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -154,23 +156,42 @@ const Home = () => {
 
       {/* Personalized Recommendations */}
       {user && personalized.length > 0 && (
-  <section className="py-16 bg-white">
+  <section className="py-16 bg-white dark:bg-gray-800">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex items-center justify-between mb-12">
         <div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Recommended For You</h2>
-                <p className="text-gray-600">Because you liked similar books and genres</p>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2 text-gray-900 dark:text-white">Recommended For You</h2>
+          <p className="text-gray-600 text-gray-600 dark:text-gray-400">Because you liked similar books and genres</p>
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {personalized.map(book => (
-                <div key={book._id || book.id}>
-                  <BookCard book={book} />
-                  {book.explanation && (
-                    <div className="text-xs text-gray-500 mt-1">{book.explanation}</div>
-                  )}
-                </div>
-        ))}
+        {personalized.map(book => {
+          const recommendation = {
+            book: {
+              _id: book._id || book.id || '',
+              title: book.title,
+              author: book.author,
+              genre: Array.isArray(book.genre) ? book.genre.join(', ') : (book.genre || ''),
+              price: book.price,
+              rating: book.ratings?.average,
+              description: book.description || '', // Use the real description
+              coverUrl: book.coverImage || '',
+              stock: 10, // default or fetch if available
+            },
+            score: (book as any).score || 0,
+            explanation: book.explanation || '',
+            reasons: (book as any).reasons || {},
+            dataPoints: (book as any).dataPoints || [],
+          };
+          return (
+            <div key={book._id || book.id}>
+              <RecommendationCard
+                recommendation={recommendation}
+                onAddToWishlist={undefined}
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   </section>
@@ -181,11 +202,11 @@ const Home = () => {
       <section className="py-16 bg-primary-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">
+            <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
               <Sparkles className="inline h-8 w-8 mr-2 text-accent-400" />
               AI-Powered Book Discovery
             </h2>
-            <p className="text-xl text-primary-100 max-w-3xl mx-auto">
+            <p className="text-xl text-primary-100 max-w-3xl mx-auto text-gray-900 dark:text-white">
               Experience the future of book discovery with our intelligent recommendation system
             </p>
           </div>
@@ -193,12 +214,12 @@ const Home = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-800">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-gray-900 dark:text-white">
             Ready to Start Your Reading Journey?
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-gray-600 mb-8 text-gray-600 dark:text-gray-400">
             Join thousands of readers who trust BookVault for their literary adventures.
           </p>
           <Link
@@ -228,12 +249,12 @@ const Section = ({
   link: string;
   books: Book[];
 }) => (
-  <section className="py-16 bg-gray-50">
+  <section className="py-16 bg-gray-50 dark:bg-gray-800">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex items-center justify-between mb-12">
         <div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">{title}</h2>
-          <p className="text-gray-600">{subtitle}</p>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2 text-gray-900 dark:text-white">{title}</h2>
+          <p className="text-gray-600 text-gray-600 dark:text-gray-400">{subtitle}</p>
         </div>
         <Link
           to={link}

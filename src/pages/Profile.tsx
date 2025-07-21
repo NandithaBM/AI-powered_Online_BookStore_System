@@ -171,9 +171,9 @@ const Profile = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg shadow-sm overflow-hidden">
           <div className="bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-8">
             <div className="flex items-center space-x-4">
               <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center">
@@ -213,46 +213,46 @@ const Profile = () => {
               <form onSubmit={(e) => { e.preventDefault(); handleProfileUpdate(); }} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
                     <input
                       type="text"
                       value={profileData.name}
                       onChange={(e) => handleInputChange('name', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 text-gray-900 dark:text-white bg-white dark:bg-gray-900"
                       aria-invalid={!!errors.name}
                     />
                     {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
                     <input
                       type="email"
                       value={profileData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 text-gray-900 dark:text-white bg-white dark:bg-gray-900"
                       aria-invalid={!!errors.email}
                     />
                     {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Location</label>
                     <input
                       type="text"
                       value={profileData.profile.location}
                       onChange={(e) => handleInputChange('profile.location', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 text-gray-900 dark:text-white bg-white dark:bg-gray-900"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Reading Goal</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Reading Goal</label>
                     <input
                       type="number"
                       value={profileData.profile.readingGoal}
                       onChange={(e) => handleInputChange('profile.readingGoal', parseInt(e.target.value))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 text-gray-900 dark:text-white bg-white dark:bg-gray-900"
                       aria-invalid={!!errors.readingGoal}
                     />
                     {errors.readingGoal && <p className="text-red-500 text-xs mt-1">{errors.readingGoal}</p>}
@@ -260,11 +260,11 @@ const Profile = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Bio</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Bio</label>
                   <textarea
                     value={profileData.profile.bio}
                     onChange={(e) => handleInputChange('profile.bio', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 text-gray-900 dark:text-white bg-white dark:bg-gray-900"
                   />
                 </div>
 
@@ -282,7 +282,7 @@ const Profile = () => {
 
             {activeTab === 'viewed' && (
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Viewed Books</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Viewed Books</h3>
                 {viewedBooks.length === 0 ? (
                   <p className="text-gray-500">No viewed books yet.</p>
                 ) : (
@@ -291,9 +291,9 @@ const Profile = () => {
                       <div key={entry._id} className="flex items-center space-x-4 p-4 border rounded">
                         <img src={entry.book?.coverImage} alt={entry.book?.title} className="w-12 h-16 object-cover rounded" />
                         <div className="flex-1">
-                          <h4 className="font-semibold text-gray-900">{entry.book?.title}</h4>
-                          <p className="text-gray-600">{entry.book?.author}</p>
-                          <p className="text-sm text-gray-500">
+                          <h4 className="font-semibold text-gray-900 dark:text-white">{entry.book?.title}</h4>
+                          <p className="text-gray-600 dark:text-gray-300">{entry.book?.author}</p>
+                          <p className="text-sm text-gray-500 dark:text-gray-400">
                             Viewed on {entry.dateViewed ? new Date(entry.dateViewed).toLocaleDateString() : 'Unknown date'}
                           </p>
                         </div>
@@ -309,7 +309,7 @@ const Profile = () => {
 
             {activeTab === 'wishlist' && (
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Wishlist</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Wishlist</h3>
                 {wishlist.length === 0 ? (
                   <p className="text-gray-500">Your wishlist is empty.</p>
                 ) : (
@@ -317,8 +317,8 @@ const Profile = () => {
                     {wishlist.map((book) => (
                       <div key={book._id} className="border rounded p-4">
                         <img src={book.coverImage} alt={book.title} className="w-full h-48 object-cover rounded mb-4" />
-                        <h4 className="font-semibold text-gray-900 mb-1">{book.title}</h4>
-                        <p className="text-gray-600 mb-2">{book.author}</p>
+                        <h4 className="font-semibold text-gray-900 dark:text-white mb-1">{book.title}</h4>
+                        <p className="text-gray-600 dark:text-gray-300 mb-2">{book.author}</p>
                         <p className="text-lg font-bold text-primary-600">₹{book.price.toFixed(2)}</p>
                       </div>
                     ))}
@@ -329,16 +329,16 @@ const Profile = () => {
 
             {activeTab === 'orders' && (
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Order History</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Order History</h3>
                 {orders.length === 0 ? (
                   <p className="text-gray-500">No orders yet.</p>
                 ) : (
                   <div className="space-y-4">
                     {orders.map((order) => (
                       <div key={order._id} className="border p-4 rounded-lg">
-                        <h4 className="font-semibold">Order #{order.orderNumber} - ₹{order.total.toFixed(2)}</h4>
-                        <p className="text-sm text-gray-600">Placed on {new Date(order.createdAt).toLocaleDateString()}</p>
-                        <ul className="mt-2 text-sm text-gray-700 list-disc list-inside">
+                        <h4 className="font-semibold text-gray-900 dark:text-white">Order #{order.orderNumber} - ₹{order.total.toFixed(2)}</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">Placed on {new Date(order.createdAt).toLocaleDateString()}</p>
+                        <ul className="mt-2 text-sm text-gray-700 dark:text-gray-300 list-disc list-inside">
                           {order.items.map((item: any, i: number) => (
                             <li key={i}>{item.book.title} × {item.quantity}</li>
                           ))}
@@ -352,26 +352,26 @@ const Profile = () => {
 
             {activeTab === 'preferences' && (
               <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-gray-900">Reading Preferences</h3>
-                <p className="text-gray-600 mb-4">Help us personalize your recommendations.</p>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Reading Preferences</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">Help us personalize your recommendations.</p>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Favorite Genres</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Favorite Genres</label>
                   <input
                     type="text"
                     value={profileData.preferences.genres.join(', ')}
                     onChange={(e) => handleInputChange('preferences.genres', e.target.value.split(',').map(s => s.trim()))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 text-gray-900 dark:text-white bg-white dark:bg-gray-900"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Favorite Authors</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Favorite Authors</label>
                   <input
                     type="text"
                     value={profileData.preferences.authors.join(', ')}
                     onChange={(e) => handleInputChange('preferences.authors', e.target.value.split(',').map(s => s.trim()))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 text-gray-900 dark:text-white bg-white dark:bg-gray-900"
                   />
                 </div>
 
@@ -387,30 +387,30 @@ const Profile = () => {
             {activeTab === 'password' && (
               <form onSubmit={handlePasswordChange} className="space-y-6 max-w-md">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Current Password</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Current Password</label>
                   <input
                     type="password"
                     value={passwordData.currentPassword}
                     onChange={e => setPasswordData({ ...passwordData, currentPassword: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 dark:text-white bg-white dark:bg-gray-900"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">New Password</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">New Password</label>
                   <input
                     type="password"
                     value={passwordData.newPassword}
                     onChange={e => setPasswordData({ ...passwordData, newPassword: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 dark:text-white bg-white dark:bg-gray-900"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Confirm New Password</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Confirm New Password</label>
                   <input
                     type="password"
                     value={passwordData.confirmPassword}
                     onChange={e => setPasswordData({ ...passwordData, confirmPassword: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 dark:text-white bg-white dark:bg-gray-900"
                   />
                 </div>
                 {passwordError && <p className="text-red-500 text-xs">{passwordError}</p>}

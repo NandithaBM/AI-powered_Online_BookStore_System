@@ -57,6 +57,7 @@ const EditBook = () => {
         <input type="text" name="author" value={book.author} onChange={handleChange} placeholder="Author" className="w-full border p-2 rounded" required />
         <input type="text" name="isbn" value={book.isbn} onChange={handleChange} placeholder="ISBN" className="w-full border p-2 rounded" required />
         <input type="number" name="price" value={book.price} onChange={handleChange} placeholder="Price" className="w-full border p-2 rounded" required />
+        <input type="number" name="discount" value={book.discount || ''} onChange={handleChange} placeholder="Discount (%)" className="w-full border p-2 rounded" min="0" max="100" />
         <input type="text" name="coverImage" value={book.coverImage} onChange={handleChange} placeholder="Cover Image URL" className="w-full border p-2 rounded" required />
         <textarea name="description" value={book.description} onChange={handleChange} placeholder="Description" className="w-full border p-2 rounded" rows={4} />
         <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Update Book</button>

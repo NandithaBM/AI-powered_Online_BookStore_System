@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Query, HTTPException, Body
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from typing import List, Optional
 import uvicorn
@@ -209,6 +210,23 @@ def personalized_recommend(request: PersonalizedRecommendRequest = Body(...)):
             break
     print('Returning recommendations:', recommendations)
     return recommendations
+
+@app.post("/reload-index")
+def reload_index():
+    global corpus_embeddings, index, books
+    try:
+        # Reload books and embeddings
+        with open("books_meta.json", "r", encoding="utf-8") as f:
+            books = json.load(f)
+        corpus = [f"{book['title']} {book['author']} {book['genre']} {book['description']}" for book in books]
+        corpus_embeddings = model.encode(corpus, convert_to_numpy=True, show_progress_bar=True)
+        corpus_embeddings = np.array(corpus_embeddings).astype(np.float32)
+        dimension = corpus_embeddings.shape[1]
+        index = faiss.IndexFlatL2(dimension)
+        index.add(corpus_embeddings)
+        return JSONResponse({"status": "success", "message": "Index reloaded"})
+    except Exception as e:
+        return JSONResponse({"status": "error", "message": str(e)}, status_code=500)
 
 # TODO: Add hybrid recommendation endpoint
 # TODO: Add explainable AI endpoint

@@ -27,12 +27,35 @@ class RecommendationEngine {
         const score = await this.calculateRecommendationScore(userProfile, book);
         const explanation = this.generateExplanation(userProfile, book, score);
 
+        // --- BEGIN granular XAI dataPoints ---
+        const dataPoints = [];
+        if (score.breakdown.genre > 0.1) {
+          const genreCount = userProfile.genres[book.genre] || 0;
+          dataPoints.push(`You purchased ${genreCount} ${book.genre} book${genreCount > 1 ? 's' : ''}`);
+        }
+        if (score.breakdown.author > 0.1) {
+          const authorCount = userProfile.authors[book.author] || 0;
+          dataPoints.push(`You enjoyed ${authorCount} book${authorCount > 1 ? 's' : ''} by ${book.author}`);
+        }
+        if (score.breakdown.rating > 0.1 && book.rating) {
+          dataPoints.push(`This book has a ${book.rating}-star rating`);
+        }
+        if (score.breakdown.popularity > 0.05) {
+          dataPoints.push(`This book is popular with other customers`);
+        }
+        if (score.breakdown.newness > 0.02) {
+          dataPoints.push(`This book is a new release`);
+        }
+        // Add more granular facts as needed
+        // --- END granular XAI dataPoints ---
+
         if (score.total > 0.3) {
           recommendations.push({
             book,
             score: score.total,
             explanation,
-            reasons: score.breakdown
+            reasons: score.breakdown,
+            dataPoints // <-- new field for granular XAI
           });
         }
       }

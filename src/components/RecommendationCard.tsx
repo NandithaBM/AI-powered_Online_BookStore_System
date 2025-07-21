@@ -25,6 +25,7 @@ interface Recommendation {
     rating: number;
     newness: number;
   };
+  dataPoints?: string[]; // <-- new field for granular XAI
 }
 
 interface RecommendationCardProps {
@@ -41,6 +42,10 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
   const { user } = useAuth();
   const [showExplanation, setShowExplanation] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [feedback, setFeedback] = useState<'up' | 'down' | null>(null);
+  const [comment, setComment] = useState('');
+  const [feedbackSubmitting, setFeedbackSubmitting] = useState(false);
+  const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
 
   const handleAddToCart = async () => {
     setLoading(true);
@@ -106,30 +111,41 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-      {/* Recommendation Score Badge */}
-      <div className="relative">
-        <img
-          src={book.coverUrl || '/api/placeholder/200/300'}
-          alt={book.title}
-          className="w-full h-48 object-cover"
-        />
-        <div className={`absolute top-2 right-2 px-2 py-1 rounded-full text-xs font-semibold bg-white ${getScoreColor(score)}`}>
-          {getScoreLabel(score)}
+    <div className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden" style={{ width: '286px', height: '486.75px' }}>
+      {/* Image Flip Area */}
+      <div className="relative h-48 group">
+        <div className="w-full h-48 [perspective:1000px]">
+          <div className="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+            {/* Front Side (Image) */}
+            <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] flex items-center justify-center">
+              <img
+                src={book.coverUrl || '/api/placeholder/200/300'}
+                alt={book.title}
+                className="w-full h-48 object-cover rounded-t-lg"
+              />
+            </div>
+            {/* Back Side (Explanation, not reversed) */}
+            <div className="absolute inset-0 w-full h-full bg-white dark:bg-gray-800 flex items-center justify-center p-4 rounded-t-lg [backface-visibility:hidden] [transform:rotateY(180deg)]">
+              <span className="text-xs text-gray-800 dark:text-gray-200 text-center line-clamp-5">{book.description}</span>
+            </div>
+          </div>
         </div>
-        <div className="absolute top-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded-full text-xs">
-          {Math.round(score * 100)}% match
-        </div>
+        <div className={`absolute top-2 right-2 px-2 py-1 rounded-full text-xs font-semibold bg-white ${getScoreColor(score)}`}>{getScoreLabel(score)}</div>
+        {score > 0 ? (
+          <div className="absolute top-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded-full text-xs">
+            {Math.round(score * 100)}% match
+          </div>
+        ) : null}
       </div>
-
+      {/* Card Content (static, always visible) */}
       <div className="p-4">
         {/* Book Info */}
         <div className="mb-3">
-          <h3 className="text-lg font-semibold text-gray-800 mb-1 line-clamp-2">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-1 line-clamp-2">
             {book.title}
           </h3>
-          <p className="text-gray-600 text-sm mb-1">by {book.author}</p>
-          <p className="text-sm text-gray-500">{book.genre}</p>
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-1">by {book.author}</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">{book.genre}</p>
         </div>
 
         {/* Rating */}
@@ -160,7 +176,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
               <Info className="w-3 h-3" />
             </div>
             <div className="flex-1">
-              <p className="text-sm text-gray-700 leading-relaxed">
+              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
                 {explanation}
               </p>
               {!showExplanation && (
@@ -176,32 +192,71 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
 
           {/* Detailed Explanation */}
           {showExplanation && (
-            <div className="mt-3 p-3 bg-gray-50 rounded-lg">
-              <h4 className="text-sm font-semibold text-gray-700 mb-2">Why this recommendation?</h4>
+            <div className="mt-3 p-3 bg-gray-50 dark:bg-gray-900 rounded-lg">
+              <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Why this recommendation?</h4>
               <div className="space-y-1">
-                {reasons.genre > 0.1 && (
-                  <div className="flex justify-between text-xs">
-                    <span>Genre match:</span>
-                    <span className="font-medium">{Math.round(reasons.genre * 100)}%</span>
+                {Object.entries(reasons).map(([factor, value]) => (
+                  <div key={factor} className="flex justify-between text-xs">
+                    <span>{factor.charAt(0).toUpperCase() + factor.slice(1)}:</span>
+                    <span className="font-medium">{Math.round(value * 100)}%</span>
+                  </div>
+                ))}
+                  </div>
+              {recommendation.dataPoints && recommendation.dataPoints.length > 0 && (
+                <div className="mt-2">
+                  <h5 className="text-xs font-semibold text-gray-600 dark:text-gray-300 mb-1">Data points:</h5>
+                  <ul className="list-disc list-inside text-xs text-gray-600 dark:text-gray-300">
+                    {recommendation.dataPoints.map((point, idx) => (
+                      <li key={idx}>{point}</li>
+                    ))}
+                  </ul>
                   </div>
                 )}
-                {reasons.author > 0.1 && (
-                  <div className="flex justify-between text-xs">
-                    <span>Author preference:</span>
-                    <span className="font-medium">{Math.round(reasons.author * 100)}%</span>
+              {/* Feedback UI */}
+              <div className="mt-4 border-t pt-2">
+                <div className="flex items-center space-x-2 mb-2">
+                  <span className="text-xs text-gray-700 dark:text-gray-300">Was this explanation helpful?</span>
+                  <button
+                    className={`px-2 py-1 rounded ${feedback === 'up' ? 'bg-green-100' : 'bg-gray-100'} hover:bg-green-200`}
+                    onClick={async () => {
+                      setFeedback('up');
+                      setFeedbackSubmitting(true);
+                      await fetch('/api/ai-recommendations/feedback', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ bookId: book._id, feedback: 'up', comment })
+                      });
+                      setFeedbackSubmitting(false);
+                      setFeedbackSubmitted(true);
+                    }}
+                    disabled={feedbackSubmitting || feedbackSubmitted}
+                  >👍</button>
+                  <button
+                    className={`px-2 py-1 rounded ${feedback === 'down' ? 'bg-red-100' : 'bg-gray-100'} hover:bg-red-200`}
+                    onClick={async () => {
+                      setFeedback('down');
+                      setFeedbackSubmitting(true);
+                      await fetch('/api/ai-recommendations/feedback', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ bookId: book._id, feedback: 'down', comment })
+                      });
+                      setFeedbackSubmitting(false);
+                      setFeedbackSubmitted(true);
+                    }}
+                    disabled={feedbackSubmitting || feedbackSubmitted}
+                  >👎</button>
                   </div>
-                )}
-                {reasons.rating > 0.1 && (
-                  <div className="flex justify-between text-xs">
-                    <span>High rating:</span>
-                    <span className="font-medium">{Math.round(reasons.rating * 100)}%</span>
-                  </div>
-                )}
-                {reasons.popularity > 0.05 && (
-                  <div className="flex justify-between text-xs">
-                    <span>Popularity:</span>
-                    <span className="font-medium">{Math.round(reasons.popularity * 100)}%</span>
-                  </div>
+                <textarea
+                  className="w-full text-xs border rounded p-1 mb-1"
+                  placeholder="Optional: Tell us why..."
+                  value={comment}
+                  onChange={e => setComment(e.target.value)}
+                  disabled={feedbackSubmitting || feedbackSubmitted}
+                  rows={2}
+                />
+                {feedbackSubmitted && (
+                  <div className="text-xs text-green-600 mt-1">Thank you for your feedback!</div>
                 )}
               </div>
               <button

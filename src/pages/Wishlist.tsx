@@ -33,15 +33,15 @@ const Wishlist = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-8">My Wishlist</h1>
 
         {wishlist.length === 0 ? (
           <div className="text-center py-12">
             <Heart className="h-24 w-24 text-gray-300 mx-auto mb-6" />
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Your wishlist is empty</h2>
-            <p className="text-gray-600 mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Your wishlist is empty</h2>
+            <p className="text-gray-600 dark:text-gray-300 mb-8">
               Save books you're interested in to your wishlist so you can easily find them later.
             </p>
             <Link
@@ -52,9 +52,9 @@ const Wishlist = () => {
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {wishlist.map((book) => (
-              <div key={book._id} className="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow">
+              <div key={book._id} className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg shadow p-4">
                 <div className="relative">
                   <Link to={`/books/${book._id}`}>
                     <img
@@ -73,11 +73,9 @@ const Wishlist = () => {
 
                 <div className="p-4">
                   <Link to={`/books/${book._id}`}>
-                    <h3 className="font-semibold text-gray-900 line-clamp-2 mb-1 hover:text-primary-600 transition-colors">
-                      {book.title}
-                    </h3>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{book.title}</h3>
                   </Link>
-                  <p className="text-gray-600 text-sm mb-2">{book.author}</p>
+                  <p className="text-gray-600 text-sm mb-2 dark:text-white">{book.author}</p>
                   
                   <div className="flex items-center mb-3">
                     <div className="flex items-center">
@@ -89,7 +87,7 @@ const Wishlist = () => {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="text-lg font-bold text-gray-900">
+                    <span className="text-lg font-bold text-gray-900 dark:text-white">
                       ${book.price.toFixed(2)}
                     </span>
                     <button

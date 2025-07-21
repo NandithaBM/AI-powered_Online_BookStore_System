@@ -97,10 +97,14 @@ const SemanticSearch: React.FC<SemanticSearchProps> = ({
           price: result.price,
           rating: result.rating,
           description: result.description,
-          coverUrl: result.coverUrl,
+          coverUrl: result.coverUrl || result.coverImage || '/default-book-cover.png', // map coverImage to coverUrl
           relevanceScore: result.relevanceScore,
           ratings: result.ratings || { average: 0, count: 0 },
         })));
+      }
+      // Update the URL with the search query
+      if (q) {
+        navigate(`/search?q=${encodeURIComponent(q)}`);
       }
     } catch (err) {
       console.error('Semantic search failed:', err);
@@ -144,7 +148,7 @@ const SemanticSearch: React.FC<SemanticSearchProps> = ({
     <div className="w-full max-w-4xl mx-auto">
       {/* Search Input */}
       <div ref={searchRef} className="relative">
-        <div className="relative">
+        <div className="relative bg-white dark:bg-gray-800 rounded-lg shadow p-4">
           <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
           <form
             onSubmit={e => {
@@ -159,7 +163,7 @@ const SemanticSearch: React.FC<SemanticSearchProps> = ({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={placeholder}
-            className="w-full pl-12 pr-20 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg"
+            className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
           />
           <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
             <button
@@ -353,11 +357,11 @@ const SemanticSearch: React.FC<SemanticSearchProps> = ({
 
       {/* Results Display */}
       {results.length > 0 && (
-        <div className="mt-4 p-4 bg-gray-50 rounded-lg border">
-          <h2 className="text-lg font-semibold text-gray-700 mb-4">Search Results</h2>
+        <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border">
+          <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-4">Search Results</h2>
           <ul>
             {results.map((book, index) => (
-              <li key={index}>
+              <li key={index} className="text-gray-900 dark:text-white">
                 <b>{book.title}</b> by {book.author} (Score: {book.relevanceScore.toFixed(3)})
               </li>
             ))}

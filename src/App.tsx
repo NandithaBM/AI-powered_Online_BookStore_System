@@ -34,8 +34,15 @@ function App() {
   return (
     <AuthProvider>
       <CartProvider>
+        {/* Dark mode test box: red in light mode, green in dark mode */}
+        <div className="fixed top-0 left-0 z-50 w-full flex justify-center pointer-events-none">
+          <div className="mt-2 px-4 py-2 rounded text-white font-bold bg-red-500 dark:bg-green-500 transition-colors">
+            <span className="block">This box is RED in light mode, GREEN in dark mode.</span>
+            <span className="block text-xs">Toggle the theme to test global dark mode.</span>
+          </div>
+        </div>
         {/* <Router> */}
-          <div className="min-h-screen bg-gray-50 flex flex-col">
+          <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col">
             <Navbar />
             <main className="flex-1">
               <Routes>
