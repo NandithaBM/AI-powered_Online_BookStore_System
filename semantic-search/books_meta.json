@@ -36,7 +36,7 @@
     "author": "Rudyard Kipling",
     "genre": "Biography",
     "description": "Not so much a sequel as a small collection of short stories, only five of which feature Mowgli and friends. The best known of the stories is 'How Fear Came', which tells the story of how the tiger got his stripes.",
-    "coverImage": "https://covers.openlibrary.org/b/isbn/9781020632365-L.jpg",
+    "coverImage": "https://tse2.mm.bing.net/th/id/OIP.LYxUVojUVVBjke3M_mfy-QHaLA?pid=Api&P=0&h=180",
     "price": 24.57
   },
   {
@@ -56,7 +56,7 @@
     "author": "Dorothy L. Sayers",
     "genre": "Mystery",
     "description": "The first of the Lord Peter Wimsey mysteries, in which the suave and witty gentleman foregoes a rare-book auction to investigate the presence of a bespectacled nude body in an architect's bathtub near the Wimsey's Denver estate",
-    "coverImage": "https://covers.openlibrary.org/b/isbn/9781096592334-L.jpg",
+    "coverImage": "https://tse3.mm.bing.net/th/id/OIP.4goPXA4iFfr-bJr7ebYFAAAAAA?pid=Api&P=0&h=180",
     "price": 23.1
   },
   {
@@ -66,7 +66,7 @@
     "author": "E. C. Bentley",
     "genre": "Mystery",
     "description": "Trent investigates the death of an industrialist.  He solves the case three times, each time getting closer to the truth.",
-    "coverImage": "https://covers.openlibrary.org/b/isbn/9781722620493-L.jpg",
+    "coverImage": "https://tse3.mm.bing.net/th/id/OIP.GQFENvgT26gmWpXX7EAapAHaLW?pid=Api&P=0&h=180",
     "price": 11.03
   },
   {
@@ -76,7 +76,7 @@
     "author": "Benjamin Franklin",
     "genre": "Biography",
     "description": "Few men could compare to Benjamin Franklin. Virtually self-taught, he excelled as an athlete, a man of letters, a printer, a scientist, a wit, an inventor, an editor, and a writer, and he was probably the most successful diplomat in American history. David Hume hailed him as the first great philosopher and great man of letters in the New World.\r\n\r\nWritten initially to guide his son, Franklin's autobiography is a lively, spellbinding account of his unique and eventful life. Stylistically his best work, it has become a classic in world literature, one to inspire and delight readers everywhere.",
-    "coverImage": "https://covers.openlibrary.org/b/isbn/9781435109292-L.jpg",
+    "coverImage": "https://tse1.mm.bing.net/th/id/OIP.-AkDhcCZM3QTBWa9or90xgAAAA?pid=Api&P=0&h=180",
     "price": 16.4
   },
   {
@@ -246,7 +246,7 @@
     "author": "John Bunyan",
     "genre": "Biography",
     "description": "Bunyan's allegory uses the everyday world of common experience as a metaphor for the spiritual journey of the soul toward God. The hero, Christian, encounters many obstacles in his quest: the Valley of the Shadow of Death, Vanity Fair, Doubting Castle, the Wicket Gate, as well as those who tempt him from his path (e.g., Talkative, Mr. Worldly Wiseman, the Giant Despair). But in the end he reaches Beulah Land, where he awaits the crossing of the river of death and his entry into the heavenly city. \"Pilgrim's Progress\" was enormously influential not only as a best-selling inspirational tract in the late 17th century, but as an ancestor of the 18th-century English novel, and many of its themes and ideas have entered permanently into Western culture.",
-    "coverImage": "https://covers.openlibrary.org/b/isbn/9783501013601-L.jpg",
+    "coverImage": "https://tse2.mm.bing.net/th/id/OIP.Zny6wz_t3CrLp7wQNkjOLgHaLS?pid=Api&P=0&h=180",
     "price": 23.96
   },
   {
@@ -316,7 +316,7 @@
     "author": "Walt Whitman",
     "genre": "Biography",
     "description": "**Leaves of Grass** is a poetry collection by American poet Walt Whitman. First published in 1855, Whitman spent most of his professional life writing and rewriting *Leaves of Grass*, revising it multiple times until his death. There have been held to be either six or nine individual editions of Leaves of Grass, the count varying depending on how they are distinguished.[2] This resulted in vastly different editions over four decades—the first edition being a small book of twelve poems, and the last, a compilation of over 400.",
-    "coverImage": "https://covers.openlibrary.org/b/isbn/9781020569845-L.jpg",
+    "coverImage": "https://tse2.mm.bing.net/th/id/OIP._Ks7Je0ER7AfONJPQOIFVwAAAA?pid=Api&P=0&h=180",
     "price": 12.59
   },
   {
@@ -1038,5 +1038,15 @@
     "description": "No description available.",
     "coverImage": "https://covers.openlibrary.org/b/id/12307817-L.jpg",
     "price": 10.54
+  },
+  {
+    "_id": "6877cd9ef0533e01507b31c0",
+    "id": "6877cd9ef0533e01507b31c0",
+    "title": "The Midnight Library",
+    "author": "Matt Haig",
+    "genre": "Fiction, Fantasy, Contemporary",
+    "description": "Between life and death, there is a library. When Nora Seed finds herself in the Midnight Library, she has a chance to undo her regrets and try every life she might have lived. But things aren't always what she imagined. The novel explores the choices that make up a life, the regrets that shape us, and the possibilities we never dreamed of.",
+    "coverImage": "https://images-na.ssl-images-amazon.com/images/I/81e1YYXxn6L.jpg",
+    "price": 18
   }
 ]

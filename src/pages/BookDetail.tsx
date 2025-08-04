@@ -457,7 +457,7 @@ const BookDetail = () => {
                     </Bar>
                   </BarChart>
                 </ResponsiveContainer>
-                <div className="flex justify-between text-xs text-gray-600 mt-1 px-2">
+                <div className="flex justify-between text-xs text-gray-600 font-semibold dark:text-white  mt-1 px-2">
                   <span>Positive</span>
                   <span>Neutral</span>
                   <span>Negative</span>
@@ -490,7 +490,7 @@ const BookDetail = () => {
             {user && (
               <button
                 onClick={() => setShowReviewForm(!showReviewForm)}
-                className="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors"
+                className="bg-primary-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors"
               >
                 Write a Review
               </button>
@@ -500,7 +500,7 @@ const BookDetail = () => {
           {/* Rating Distribution */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-gray-900 mb-2">
+              <div className="text-4xl font-bold dark:text-white text-gray-900 mb-2">
                 {book.ratings.average.toFixed(1)}
               </div>
               <div className="flex justify-center mb-2">
@@ -515,7 +515,7 @@ const BookDetail = () => {
                   />
                 ))}
               </div>
-              <p className="text-gray-600">{book.ratings.count} reviews</p>
+              <p className="text-gray-600 dark:text-white">{book.ratings.count} reviews</p>
             </div>
             
             <div className="space-y-2">
@@ -603,7 +603,7 @@ const BookDetail = () => {
           )}
 
           {/* Reviews List */}
-          <div className="space-y-6">
+          {/* <div className="space-y-6">
             {book.reviews.map((review) => (
               <div key={review._id} className="border-b border-gray-200 pb-6">
                 <div className="flex items-start space-x-4">
@@ -634,7 +634,7 @@ const BookDetail = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* Similar Books */}

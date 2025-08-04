@@ -100,15 +100,15 @@ const Reviews: React.FC<ReviewsProps> = ({ bookId }) => {
                         {review.user.name[0]}
                       </div>
                     )}
-                    <span className="font-semibold text-gray-900 mr-2">{review.user.name}</span>
+                    <span className="font-semibold text-gray-900 dark:text-white mr-2">{review.user.name}</span>
                     <span className="flex items-center">
                       {[1,2,3,4,5].map(star => (
                         <Star key={star} className={`h-4 w-4 ${star <= review.rating ? 'text-yellow-400 fill-current' : 'text-gray-300'}`} />
                       ))}
                     </span>
-                    <span className="ml-2 text-xs text-gray-500">{new Date(review.createdAt).toLocaleDateString()}</span>
+                    <span className="ml-2 text-xs text-gray-500 dark:text-white">{new Date(review.createdAt).toLocaleDateString()}</span>
                   </div>
-                  <p className="text-gray-700">{review.comment}</p>
+                  <p className="text-gray-700 dark:text-white">{review.comment}</p>
                 </div>
               ))}
             </div>
