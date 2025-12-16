@@ -319,7 +319,7 @@ const Profile = () => {
                         <img src={book.coverImage} alt={book.title} className="w-full h-48 object-cover rounded mb-4" />
                         <h4 className="font-semibold text-gray-900 dark:text-white mb-1">{book.title}</h4>
                         <p className="text-gray-600 dark:text-gray-300 mb-2">{book.author}</p>
-                        <p className="text-lg font-bold text-primary-600">₹{book.price.toFixed(2)}</p>
+                        <p className="text-lg font-bold text-primary-600">${book.price.toFixed(2)}</p>
                       </div>
                     ))}
                   </div>
@@ -336,7 +336,7 @@ const Profile = () => {
                   <div className="space-y-4">
                     {orders.map((order) => (
                       <div key={order._id} className="border p-4 rounded-lg">
-                        <h4 className="font-semibold text-gray-900 dark:text-white">Order #{order.orderNumber} - ₹{order.total.toFixed(2)}</h4>
+                        <h4 className="font-semibold text-gray-900 dark:text-white">Order #{order.orderNumber} - ${order.total.toFixed(2)}</h4>
                         <p className="text-sm text-gray-600 dark:text-gray-300">Placed on {new Date(order.createdAt).toLocaleDateString()}</p>
                         <ul className="mt-2 text-sm text-gray-700 dark:text-gray-300 list-disc list-inside">
                           {order.items.map((item: any, i: number) => (

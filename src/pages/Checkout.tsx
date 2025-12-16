@@ -539,7 +539,7 @@ const Checkout = () => {
                     <p className="text-gray-500 dark:text-gray-400 text-xs">Qty: {item.quantity}</p>
                   </div>
                   <p className="font-medium text-gray-900 dark:text-white">
-                    ₹{(item.price * item.quantity).toFixed(2)}
+                    ${(item.price * item.quantity).toFixed(2)}
                   </p>
                 </div>
               ))}
@@ -548,7 +548,7 @@ const Checkout = () => {
             <div className="border-t border-gray-200 pt-4 space-y-2">
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600 dark:text-gray-300">Subtotal</span>
-                <span className="text-gray-900 dark:text-white">₹{subtotal.toFixed(2)}</span>
+                <span className="text-gray-900 dark:text-white">${subtotal.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600 dark:text-gray-300">Shipping</span>
@@ -558,7 +558,7 @@ const Checkout = () => {
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600 dark:text-gray-300">Tax</span>
-                <span className="text-gray-900 dark:text-white">₹{tax.toFixed(2)}</span>
+                <span className="text-gray-900 dark:text-white">${tax.toFixed(2)}</span>
               </div>
               <div className="border-t border-gray-200 pt-2">
                 <div className="flex justify-between font-semibold">
@@ -571,7 +571,7 @@ const Checkout = () => {
             {subtotal < 50 && (
               <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900 rounded-lg">
                 <p className="text-sm text-blue-800 dark:text-blue-200">
-                  Add ₹{(50 - subtotal).toFixed(2)} more for free shipping!
+                  Add ${(50 - subtotal).toFixed(2)} more for free shipping!
                 </p>
               </div>
             )}

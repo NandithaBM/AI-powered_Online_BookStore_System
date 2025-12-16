@@ -69,7 +69,7 @@ const Orders = () => {
                         </div>
                         <div className="flex items-center">
                           <CreditCard className="h-4 w-4 mr-1" />
-                          ₹{order.total.toFixed(2)}
+                          ${order.total.toFixed(2)}
                         </div>
                       </div>
                     </div>

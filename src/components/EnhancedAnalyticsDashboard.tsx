@@ -306,7 +306,7 @@ const EnhancedAnalyticsDashboard: React.FC = () => {
                 <div>
                   <p className="text-blue-100">Total Revenue</p>
                   <p className="text-2xl font-bold">
-                    ₹{data.sales.summary.totalRevenue.toLocaleString()}
+                    ${data.sales.summary.totalRevenue.toLocaleString()}
                   </p>
                   <p className="text-blue-100 text-sm mt-1">
                     +{data.sales.summary.growthRate.toFixed(1)}% vs last period
@@ -327,7 +327,7 @@ const EnhancedAnalyticsDashboard: React.FC = () => {
                     {data.sales.summary.totalOrders.toLocaleString()}
                   </p>
                   <p className="text-green-100 text-sm mt-1">
-                    AOV: ₹{data.sales.summary.averageOrderValue.toFixed(2)}
+                    AOV: ${data.sales.summary.averageOrderValue.toFixed(2)}
                   </p>
                 </div>
                 <ShoppingCart className="w-8 h-8 text-green-200" />

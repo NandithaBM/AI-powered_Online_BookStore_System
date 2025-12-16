@@ -292,15 +292,15 @@ const BookDetail = () => {
 
               <div className="flex items-center space-x-2 mb-6">
                 <span className="text-3xl font-bold text-gray-900">
-                  ₹{book.price.toFixed(2)}
+                  ${book.price.toFixed(2)}
                 </span>
                 {book.originalPrice && book.originalPrice > book.price && (
                   <>
                     <span className="text-xl text-gray-500 line-through">
-                      ₹{book.originalPrice.toFixed(2)}
+                      ${book.originalPrice.toFixed(2)}
                     </span>
                     <span className="bg-accent-100 text-accent-800 px-2 py-1 rounded text-sm font-semibold">
-                      Save ₹{(book.originalPrice - book.price).toFixed(2)}
+                      Save ${(book.originalPrice - book.price).toFixed(2)}
                     </span>
                   </>
                 )}

@@ -173,13 +173,13 @@ const PaymentFormContent: React.FC<PaymentFormProps> = ({
               <span className="text-gray-600 dark:text-gray-300">
                 {item.title} × {item.quantity}
               </span>
-              <span className="font-medium text-gray-900 dark:text-white">₹{(item.price * item.quantity).toFixed(2)}</span>
+              <span className="font-medium text-gray-900 dark:text-white">${(item.price * item.quantity).toFixed(2)}</span>
             </div>
           ))}
           <div className="border-t border-gray-200 dark:border-gray-700 pt-2 mt-2">
             <div className="flex justify-between font-semibold text-lg">
               <span className="text-gray-900 dark:text-white">Total:</span>
-              <span className="text-blue-600 dark:text-blue-400">₹{totalAmount.toFixed(2)}</span>
+              <span className="text-blue-600 dark:text-blue-400">${totalAmount.toFixed(2)}</span>
             </div>
           </div>
         </div>
@@ -227,7 +227,7 @@ const PaymentFormContent: React.FC<PaymentFormProps> = ({
         ) : (
           <>
             <Lock className="w-5 h-5" />
-            <span>Pay ₹{totalAmount.toFixed(2)}</span>
+            <span>Pay ${totalAmount.toFixed(2)}</span>
           </>
         )}
       </motion.button>

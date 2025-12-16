@@ -167,7 +167,7 @@ const OrderDetail = () => {
                 </div>
                 <div className="flex items-center">
                   <CreditCard className="h-4 w-4 mr-1" />
-                  ₹{order.total.toFixed(2)}
+                  ${order.total.toFixed(2)}
                 </div>
                 {order.status === 'cancelled' && order.updatedAt && (
                   <div className="flex items-center text-red-600">
@@ -258,10 +258,10 @@ const OrderDetail = () => {
                     </div>
                     <div className="text-right">
                       <p className="font-semibold text-gray-900 dark:text-white">
-                        ₹{(item.price * item.quantity).toFixed(2)}
+                        ${(item.price * item.quantity).toFixed(2)}
                       </p>
                       <p className="text-sm text-gray-500 dark:text-gray-400">
-                        ₹{item.price.toFixed(2)} each
+                        ${item.price.toFixed(2)} each
                       </p>
                     </div>
                   </div>
@@ -278,7 +278,7 @@ const OrderDetail = () => {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-600 dark:text-gray-300">Subtotal</span>
-                  <span className="text-gray-900 dark:text-white">₹{order.subtotal.toFixed(2)}</span>
+                  <span className="text-gray-900 dark:text-white">${order.subtotal.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600 dark:text-gray-300">Shipping</span>
@@ -288,12 +288,12 @@ const OrderDetail = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600 dark:text-gray-300">Tax</span>
-                  <span className="text-gray-900 dark:text-white">₹{order.tax.toFixed(2)}</span>
+                  <span className="text-gray-900 dark:text-white">${order.tax.toFixed(2)}</span>
                 </div>
                 <div className="border-t border-gray-200 dark:border-gray-700 pt-2">
                   <div className="flex justify-between font-semibold">
                     <span className="text-gray-900 dark:text-white">Total</span>
-                    <span className="text-gray-900 dark:text-white">₹{order.total.toFixed(2)}</span>
+                    <span className="text-gray-900 dark:text-white">${order.total.toFixed(2)}</span>
                   </div>
                 </div>
               </div>

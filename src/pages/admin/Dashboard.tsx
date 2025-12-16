@@ -134,7 +134,7 @@ const AdminDashboard = () => {
     },
     {
       title: 'Revenue',
-      value: `₹${stats.totalRevenue.toLocaleString()}`,
+      value: `$${stats.totalRevenue.toLocaleString()}`,
       icon: DollarSign,
       color: 'bg-yellow-500',
       change: '+22%',
@@ -287,7 +287,7 @@ const AdminDashboard = () => {
                   <div>
                     <p className="font-medium text-green-800 dark:text-green-200">Sales Milestone</p>
                     <p className="text-sm text-green-700 dark:text-green-300">
-                      Congratulations! You've reached ₹10K in sales this month
+                      Congratulations! You've reached $10K in sales this month
                     </p>
                   </div>
                 </div>

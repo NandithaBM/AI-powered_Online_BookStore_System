@@ -195,7 +195,7 @@ const handleChange = (
             </div>
 
             <div>
-              <label className="block text-gray-700 dark:text-gray-300 font-medium mb-1">Price (₹)</label>
+              <label className="block text-gray-700 dark:text-gray-300 font-medium mb-1">Price ($)</label>
               <input
                 type="number"
                 step="0.01"
