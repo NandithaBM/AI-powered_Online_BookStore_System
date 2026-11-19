@@ -138,7 +138,6 @@ uvicorn main:app --reload
 The backend runs at `http://127.0.0.1:8000`.
 FastAPI documentation is available at `http://127.0.0.1:8000/docs`.
 
-> Check the file name (`main.py`) and the install step against your `server` folder, and change them if they are different.
 
 ### 4. Environment variables
 
@@ -149,7 +148,6 @@ MONGODB_URI=your_mongodb_connection_string
 SECRET_KEY=your_secret_key
 ```
 
-> Never upload your real `.env` file to GitHub.
 
 ### 5. Try the demo
 
@@ -161,7 +159,7 @@ On the login page, use the **Demo User** or **Demo Admin** button to explore the
 
 **AI-Powered Book Discovery: Integrating Semantic Search, Hybrid Recommendation, and Explainable AI in a Full-Stack Platform**
 Published in the *International Journal for Multidisciplinary Research (IJFMR)*.
-[Read the paper](PASTE_PAPER_LINK_HERE)
+[Read the paper](https://www.ijfmr.com/research-paper.php?id=59750)
 
 ---
 
@@ -179,5 +177,4 @@ Published in the *International Journal for Multidisciplinary Research (IJFMR)*.
 MCA Graduate | Aspiring Software Engineer
 
 - GitHub: [NandithaBM](https://github.com/NandithaBM)
-- LinkedIn: [Add your LinkedIn link]
-- Email: [Add your email]
+- LinkedIn: www.linkedin.com/in/nanditha-b-b0146031b
