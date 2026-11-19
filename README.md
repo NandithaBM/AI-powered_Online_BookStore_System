@@ -55,33 +55,33 @@ Each suggestion comes with a short explanation, so users can see why a book was 
 
 | Home page | Login with demo accounts |
 | --- | --- |
-| ![Home page](screenshots/02-home.png) | ![Login page](screenshots/01-login.png) |
+| ![Home page](02-home.png) | ![Login page](01-login.png) |
 
 ### Browsing and buying
 
 | Browse books with filters | Book details |
 | --- | --- |
-| ![Browse books](screenshots/03-browse-books.png) | ![Book details](screenshots/04-book-details.png) |
+| ![Browse books](03-browse-books.png) | ![Book details](04-book-details.png) |
 
 | Shopping cart | Review sentiment summary |
 | --- | --- |
-| ![Shopping cart](screenshots/05-cart.png) | ![Review sentiment](screenshots/12-review-sentiment.png) |
+| ![Shopping cart](05-cart.png) | ![Review sentiment](12-review-sentiment.png) |
 
 ### AI features
 
 | AI semantic search | Personalized recommendations |
 | --- | --- |
-| ![AI semantic search](screenshots/10-ai-semantic-search.png) | ![Recommendations](screenshots/11-recommendations.png) |
+| ![AI semantic search](10-ai-semantic-search.png) | ![Recommendations](11-recommendations.png) |
 
 ### Admin panel
 
 | Admin dashboard | Manage books |
 | --- | --- |
-| ![Admin dashboard](screenshots/06-admin-dashboard.png) | ![Manage books](screenshots/07-admin-manage-books.png) |
+| ![Admin dashboard](06-admin-dashboard.png) | ![Manage books](07-admin-manage-books.png) |
 
 | Manage orders | Analytics dashboard |
 | --- | --- |
-| ![Manage orders](screenshots/08-admin-manage-orders.png) | ![Analytics](screenshots/09-admin-analytics.png) |
+| ![Manage orders](08-admin-manage-orders.png) | ![Analytics](09-admin-analytics.png) |
 
 ---
 
@@ -92,7 +92,6 @@ AI-powered_Online_BookStore_System/
 ├── src/               # React + TypeScript frontend (pages, components)
 ├── server/            # Backend APIs (authentication, books, cart, reviews)
 ├── semantic-search/   # Semantic search module
-├── screenshots/       # Screenshots used in this README
 ├── index.html         # Frontend entry point
 ├── package.json       # Frontend dependencies and scripts
 ├── vite.config.ts     # Vite configuration
