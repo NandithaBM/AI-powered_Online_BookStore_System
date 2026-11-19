@@ -95,7 +95,7 @@ uvicorn main:app --reload
 The backend runs at `http://127.0.0.1:8000`.
 FastAPI documentation is available at `http://127.0.0.1:8000/docs`.
 
-> Check the file name (`main.py`) and the install step against your `server` folder, and change them if they are different.
+
 
 ### 4. Environment variables
 
@@ -106,7 +106,6 @@ MONGODB_URI=your_mongodb_connection_string
 SECRET_KEY=your_secret_key
 ```
 
-> Never upload your real `.env` file to GitHub.
 
 ---
 
@@ -115,8 +114,7 @@ SECRET_KEY=your_secret_key
 Add screenshots of the home page, book details page, cart, and recommendations here.
 
 ```
-![Home Page](screenshots/home.png)
-![Recommendations](screenshots/recommendations.png)
+
 ```
 
 ---
